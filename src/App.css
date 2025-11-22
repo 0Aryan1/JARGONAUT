@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hero-title {
+  font-family: 'Bodoni Moda', serif;
+  letter-spacing: 0.05em;
+  line-height: 1;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: #0a0b14; /* Space dark color */
+}
+
+/* Navbar 3D effects */
+.nav-link {
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.nav-link:hover {
+  transform: translateZ(20px);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.hero-image {
+  background-image: url('/hero-bg.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  will-change: transform;
+  position: relative;
+}
+
+.hero-gradient {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, 
+    transparent 30%,
+    rgba(10, 11, 20, 0.5) 70%,
+    #0a0b14 100%
+  );
+  pointer-events: none;
+  will-change: transform;
+  transform-origin: bottom;
+}
+
+/* Blog Content Styling */
+.prose {
+  max-width: none;
+}
+
+.prose h3 {
+  color: #ffffff;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.prose p {
+  color: #e5e7eb;
+  margin-bottom: 1.25rem;
+  line-height: 1.75;
+}
+
+.prose ul {
+  color: #e5e7eb;
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.prose li {
+  margin-bottom: 0.75rem;
+  line-height: 1.75;
+}
+
+.prose strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.prose em {
+  font-style: italic;
+  color: #d1d5db;
+}
+
+/* Line clamp utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
