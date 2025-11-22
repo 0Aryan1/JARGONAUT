@@ -103,7 +103,7 @@ function Home() {
       </nav>
       
       {/* Hero Section */}
-      <div className="relative h-[80vh] overflow-hidden">
+      <div className="relative h-screen overflow-hidden">
         {/* Galaxy Background */}
         <div className="absolute inset-0 w-full h-full z-10">
           <Galaxy 
