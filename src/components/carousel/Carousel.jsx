@@ -27,7 +27,7 @@ export default function Carousel() {
           1024: { items: 3 }    // desktop: 3 cards (33% width each)
         }}
         infinite
-        disableButtonsControls={false}
+        disableButtonsControls={true}
         autoPlay={true}
         autoPlayInterval={3000}
         autoPlayStrategy="default"
