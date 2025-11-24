@@ -91,12 +91,12 @@ const BlogDetail = () => {
             </button>
             
             <div className="flex items-center gap-3 text-sm text-white/60 mb-4">
-              <span>{new Date(blog.date).toLocaleDateString('en-US', { 
+              {/* <span>{new Date(blog.date).toLocaleDateString('en-US', { 
                 year: 'numeric', 
                 month: 'long', 
                 day: 'numeric' 
               })}</span>
-              <span>•</span>
+              <span>•</span> */}
               <span>{blog.author}</span>
             </div>
             
