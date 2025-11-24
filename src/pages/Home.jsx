@@ -173,7 +173,7 @@ function Home() {
             {/* Profile Card - LEFT SIDE */}
             <div className="flex justify-center">
               <ProfileCard
-                name="Aryan Agrawal"
+                name="Dev Agrawal"
                 title="Legal Tech Blogger"
                 handle="aryanagrawal"
                 status="Writing Amazing Content"
