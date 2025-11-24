@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { blogs } from '../data/blogs';
 import Footer from '../components/Footer';
@@ -6,8 +6,32 @@ import Footer from '../components/Footer';
 const BlogDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   
   const blog = blogs.find(b => b.id === parseInt(id));
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      
+      if (currentScrollY < 100) {
+        // Always show navbar at the top
+        setIsNavbarVisible(true);
+      } else if (currentScrollY > lastScrollY) {
+        // Scrolling down - hide navbar
+        setIsNavbarVisible(false);
+      } else {
+        // Scrolling up - show navbar
+        setIsNavbarVisible(true);
+      }
+      
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [lastScrollY]);
 
   if (!blog) {
     return (
