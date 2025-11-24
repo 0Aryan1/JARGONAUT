@@ -9,7 +9,6 @@ export const blogs = [
     fileName: "SEBI's consultation paper.docx",
     author: "Dev Agrawal",
     category: "Securities Regulation",
-    createdAt: "2025-06-20",
     tags: [
       "SEBI",
       "AI",
@@ -112,7 +111,7 @@ export const blogs = [
     title: "SEBI's Algorithmic Trading Framework: When Retail Meets Regulation",
     image: "https://images.unsplash.com/photo-1611974765270-ca1258634369?q=80&w=2664&auto=format&fit=crop", // Trading Charts Theme
     fileName: "SEBI's Algorithmic Trading Framework.docx",
-    author: "Unknown",
+    author: "Dev Agrawal",
     category: "Securities Regulation",
     createdAt: "2025-02-01",
     updatedAt: "2025-02-01",
@@ -221,7 +220,7 @@ export const blogs = [
     title: "RBI's Digital Lending Revolution: From Regulatory Vacuum to Fintech's New Reality Check",
     image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2670&auto=format&fit=crop", // Fintech/Mobile Money Theme
     fileName: "RBI's Digital Lending Revolution_ From Regulatory.docx",
-    author: "Unknown",
+    author: "Dev Agrawal",
     category: "Banking & Fintech",
     createdAt: "2025-05-08",
     updatedAt: "2025-05-08",
@@ -319,7 +318,7 @@ export const blogs = [
     title: "The Professor’s New Playbook: NSE’s PreOpening for F&O",
     image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=2670&auto=format&fit=crop", // Stock Exchange/Market Theme
     fileName: "F&O AND MONEY HEIST (1).docx",
-    author: "Unknown",
+    author: "Dev Agrawal",
     category: "Derivatives & Market Microstructure",
     createdAt: "2025-05-29",
     updatedAt: "2025-05-29",
@@ -369,7 +368,7 @@ export const blogs = [
     title: "Profits and Silence: Disclosing Workplace Safety & Maternity Benefits",
     image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2669&auto=format&fit=crop", // Corporate/Professional Theme
     fileName: "disclose data regarding workplace safety and maternity benefits (1).docx",
-    author: "Unknown",
+    author: "Dev Agrawal",
     category: "Corporate Governance & Labour",
     createdAt: "2025-07-14",
     updatedAt: "2025-07-14",
