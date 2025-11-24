@@ -6,24 +6,22 @@ import Footer from '../components/Footer';
 const BlogDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [isNavbarVisible, setIsNavbarVisible] = useState(true);
+  const [isNavVisible, setIsNavVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   
   const blog = blogs.find(b => b.id === parseInt(id));
 
+  // Scroll behavior for navbar
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
-      if (currentScrollY < 100) {
-        // Always show navbar at the top
-        setIsNavbarVisible(true);
-      } else if (currentScrollY > lastScrollY) {
-        // Scrolling down - hide navbar
-        setIsNavbarVisible(false);
-      } else {
-        // Scrolling up - show navbar
-        setIsNavbarVisible(true);
+      if (currentScrollY < lastScrollY || currentScrollY < 100) {
+        // Scrolling up or at top - show navbar
+        setIsNavVisible(true);
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        // Scrolling down and past threshold - hide navbar
+        setIsNavVisible(false);
       }
       
       setLastScrollY(currentScrollY);
@@ -52,7 +50,9 @@ const BlogDetail = () => {
   return (
     <div className="min-h-screen bg-[#0a0b14]">
       {/* Navigation Bar */}
-      <nav className="fixed top-4 left-4 right-4 z-50">
+      <nav className={`fixed left-4 right-4 z-50 transition-all duration-300 ${
+        isNavVisible ? 'top-4' : '-top-24'
+      }`}>
         <div className="max-w-7xl mx-auto">
           <div className="bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-lg">
             <div className="flex items-center justify-between h-16 px-8">
@@ -100,7 +100,7 @@ const BlogDetail = () => {
               <span>{blog.author}</span>
             </div>
             
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight break-words">
               {blog.title}
             </h1>
             
