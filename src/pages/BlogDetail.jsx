@@ -58,9 +58,14 @@ const BlogDetail = () => {
             <div className="flex items-center justify-between h-16 px-8">
               <button 
                 onClick={() => navigate('/')}
-                className="text-[#2c2c2c] font-bold text-xl hover:scale-105 transition-transform duration-200"
+                className="flex items-center gap-2 hover:scale-105 transition-transform duration-200"
               >
-                ← LOGO
+                <span className="text-[#2c2c2c] text-xl">←</span>
+                <img 
+                  src="/logo.png" 
+                  alt="The Jargonaut Logo" 
+                  className="h-14 md:h-20 lg:h-24 w-auto object-contain"
+                />
               </button>
               
               <div className="hidden md:block">
