@@ -119,7 +119,7 @@ const BlogDetail = () => {
             <img 
               src={blog.image} 
               alt={blog.title}
-              className="w-full h-64 sm:h-80 md:h-96 lg:h-[32rem] xl:h-[36rem] object-cover"
+              className="w-full h-64 sm:h-auto md:h-96 lg:h-[32rem] xl:h-[36rem] object-cover"
             />
           </div>
 
