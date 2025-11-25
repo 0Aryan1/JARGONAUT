@@ -25,10 +25,13 @@ function Home() {
                     setMobileMenuOpen(false);
                     navigate('/');
                   }}
-                  className="text-white font-bold text-sm md:text-xl relative hover:scale-105 transition-transform duration-200 inline-block"
+                  className="relative hover:scale-105 transition-transform duration-200 inline-block"
                 >
-                  LOGO
-                  <div className="absolute inset-0 bg-white/20 blur-sm -z-10 rounded-lg transform scale-110"></div>
+                  <img 
+                    src="/logo.png" 
+                    alt="The Jargonaut Logo" 
+                    className="h-14 md:h-20 lg:h-24 w-auto object-contain"
+                  />
                 </button>
               </div>
               
@@ -178,7 +181,7 @@ function Home() {
                 handle="aryanagrawal"
                 status="Writing Amazing Content"
                 contactText="Get in Touch"
-               avatarUrl="/dev.jpeg"
+                avatarUrl="/dev.jpeg"
                 miniAvatarUrl="/dev.jpeg"
                 showUserInfo={true}
                 enableTilt={true}
