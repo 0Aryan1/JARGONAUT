@@ -211,7 +211,7 @@ export const blogs = [
     id: 3,
     slug: "fo-money-heist-preopening",
     title: "The Professor’s New Playbook: NSE’s PreOpening for F&O",
-    image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=2670&auto=format&fit=crop", // Stock Exchange/Market Theme
+    image: "/4.jpeg", // Stock Exchange/Market Theme
     fileName: "F&O AND MONEY HEIST (1).docx",
     author: "Unknown",
     category: "Derivatives & Market Microstructure",
