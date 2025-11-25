@@ -129,7 +129,7 @@ function Home() {
         <div className="absolute inset-0 z-30 pointer-events-none">
           <div className="max-w-7xl mx-auto h-full">
             <div className="h-full flex flex-col justify-center px-4 md:px-8">
-              <h1 className="hero-title text-5xl sm:text-6xl md:text-8xl lg:text-9xl text-white tracking-wide break-words">
+              <h1 className="hero-title text-4xl sm:text-5xl md:text-8xl lg:text-9xl text-white tracking-wide break-words">
                 THE<br />
                 <span className="font-bold">JARGONAUT</span>
               </h1>
