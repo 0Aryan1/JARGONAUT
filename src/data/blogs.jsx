@@ -7,7 +7,7 @@ export const blogs = [
     title: "SEBI's Algorithmic Trading Framework: When Retail Meets Regulation",
     image: "/2.jpeg", // Trading Charts Theme
     fileName: "SEBI's Algorithmic Trading Framework.docx",
-    author: "Unknown",
+    author: "Dev Agrawal",
     category: "Securities Regulation",
     createdAt: "2025-02-01",
     updatedAt: "2025-02-01",
@@ -115,7 +115,7 @@ export const blogs = [
     title: "RBI's Digital Lending Revolution: From Regulatory Vacuum to Fintech's New Reality Check",
     image: "/3.jpeg", // Fintech/Mobile Money Theme
     fileName: "RBI's Digital Lending Revolution_ From Regulatory.docx",
-    author: "Unknown",
+   author: "Dev Agrawal",
     category: "Banking & Fintech",
     createdAt: "2025-05-08",
     updatedAt: "2025-05-08",
@@ -213,7 +213,7 @@ export const blogs = [
     title: "The Professor’s New Playbook: NSE’s PreOpening for F&O",
     image: "/4.jpeg", // Stock Exchange/Market Theme
     fileName: "F&O AND MONEY HEIST (1).docx",
-    author: "Unknown",
+    author: "Dev Agrawal",
     category: "Derivatives & Market Microstructure",
     createdAt: "2025-05-29",
     updatedAt: "2025-05-29",
@@ -263,7 +263,7 @@ export const blogs = [
     title: "Profits and Silence: Disclosing Workplace Safety & Maternity Benefits",
     image: "/5.jpeg", // Corporate/Professional Theme
     fileName: "disclose data regarding workplace safety and maternity benefits (1).docx",
-    author: "Unknown",
+    author: "Dev Agrawal",
     category: "Corporate Governance & Labour",
     createdAt: "2025-07-14",
     updatedAt: "2025-07-14",
@@ -387,7 +387,7 @@ export const blogs = [
     title: "The FPI Love Story: Dilwale Portfolio Le Jayenge",
     image: "/7.jpg", // Placeholder for new image
     fileName: "THE FPI LOVE STORY.pdf",
-    author: "The Jargonaut",
+    author: "Dev Agrawal",
     category: "Foreign Investment & Regulations",
     createdAt: "2025-09-15",
     updatedAt: "2025-09-15",
