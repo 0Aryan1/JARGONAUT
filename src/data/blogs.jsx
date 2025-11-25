@@ -315,6 +315,151 @@ export const blogs = [
   },
   {
     id: 5,
+    slug: "sebi-rpt-homelander-shift",
+    title: "A Calibrated Shift in SEBI’s Related-Party Transaction Regime—Explained Through The Boys",
+    image: "/6.jpeg", // Placeholder for new image
+    fileName: "A Calibrated Shift in SEBI.docx",
+    author: "Dev Agrawal",
+    category: "Corporate Governance",
+    createdAt: "2025-08-06",
+    updatedAt: "2025-08-06",
+    tags: [
+      "SEBI",
+      "Related Party Transactions",
+      "Corporate Governance",
+      "The Boys",
+      "Compliance",
+      "Audit Committee"
+    ],
+    content: `
+      <p><strong>A Calibrated Shift in SEBI’s Related-Party Transaction Regime—Explained Through The Boys</strong></p>
+
+      <p>The Securities and Exchange Board of India (SEBI) has always treated related-party transactions (RPTs) with suspicion, and for good reason. When a listed company buys goods from a promoter-controlled subsidiary or lends money to a director’s private vehicle, the line between legitimate commerce and self-dealing blurs. It is precisely this fear of "tunnelling"—wealth slipping out of the corporate perimeter into private pockets—that animated SEBI’s draconian 2015 regulations.</p>
+
+      <p>However, in August 2025, SEBI sounded a note of pragmatism. A new consultation paper proposes to relax blanket scrutiny, moving away from "ticking boxes" toward a risk-based judgment approach.</p>
+
+      <h2>Enter Homelander: A Pop-Culture Lens on Regulatory Overkill</h2>
+      <p>Why this reversal after a decade of tightening? A pop-culture analogy, borrowed from <em>The Boys</em>, clarifies the logic.</p>
+      
+      <p>In that universe, <strong>Homelander</strong> is all-powerful and invincible, summoned when humanity faces existential danger. However, calling him to mediate a neighborhood parking dispute would squander his capacity and dull his edge. SEBI’s older regime effectively summoned Homelander—shareholder votes, public filings, press commentary—for every routine intra-group recharge.</p>
+
+      <p>The proposed 2025 regime prefers to keep Homelander in reserve, ready to strike only when a transaction’s scale threatens to distort earnings, reroute cash, or tilt control.</p>
+
+      <h2>The August 2025 Consultation: A Pragmatic Re-Focus</h2>
+      <p>The document does not abandon the principle of sunlight; it merely re-positions the spotlight:</p>
+      <ul>
+        <li><strong>Small Deal Exemption:</strong> Transactions smaller than ₹150 million would vanish from half-yearly disclosure annexures.</li>
+        <li><strong>High Value Thresholds:</strong> Companies with revenue >₹300 billion need shareholder approval only when a deal crosses ₹25 billion.</li>
+        <li><strong>Hard Stop:</strong> An absolute hard stop of ₹50 billion captures outliers regardless of company size.</li>
+      </ul>
+
+      <h2>Inside the Boardroom: From Arithmetic to Judgment</h2>
+      <p>The change reshapes life inside Indian boardrooms. Audit committees, liberated from marathon sessions regarding micro-deals, must now focus on thematic risk. They will demand dashboards mapping cumulative exposure and heat-maps highlighting pricing outliers.</p>
+      
+      <p>Independent directors have fewer excuses now. They must probe qualitative red flags—opaque cost-allocation keys and perpetual roll-overs of inter-corporate deposits—because mere compliance with arithmetic thresholds no longer suffices.</p>
+
+      <h2>The Aggregation Doctrine: Policing Deal-Splitting</h2>
+      <p>To prevent companies from slicing a large deal into smaller bites to evade detection, SEBI has emphasized the <strong>Aggregation Doctrine</strong>. A services framework for ₹24.8 billion, split into quarterly work orders below ₹150 million, will now meet with enforcement.</p>
+
+      <h2>Interlocking Regimes: No Universal Hall-Pass</h2>
+      <p>Smart boards know that relief under LODR is not a universal hall-pass. Other regulators remain vigilant:</p>
+      <ul>
+        <li><strong>Tax Authorities:</strong> Transfer-pricing officers can still adjust income under Rule 10D.</li>
+        <li><strong>IBC:</strong> Resolution professionals can claw back undervalued transactions.</li>
+        <li><strong>Competition Commission:</strong> Turnover tests still demand merger filings for restructuring.</li>
+      </ul>
+
+      <h2>Conclusion: Keeping Homelander Fresh</h2>
+      <p>SEBI has learned that oversight must be fearsome but focused. By keeping "Homelander" out of neighborhood quarrels, the regulator ensures that when real villains appear, the enforcement mechanism arrives fresh and unstoppable. If boards internalize this wisdom, the new regime could mark a maturing of Indian corporate governance—a passage from childhood rules to adult responsibilities.</p>
+
+      <hr>
+      <h3>References</h3>
+      <ul style="font-size: 0.9rem; word-break: break-all;">
+        <li><a href="https://www.sebi.gov.in/reports-and-statistics/reports/feb-2025/consultation-paper-on-aspects-relating-to-secretarial-compliance-report-appointment-of-auditors-and-related-party-transactions-of-a-listed-entity_91740.html" target="_blank">SEBI Consultation Paper (Feb/Aug 2025)</a></li>
+        <li><a href="https://www.reuters.com/sustainability/boards-policy-regulation/indias-markets-regulator-proposes-relax-limits-approval-disclosure-related-party-2025-08-04/" target="_blank">Reuters: SEBI Proposes to Relax Limits</a></li>
+        <li><a href="https://www.moneycontrol.com/news/business/markets/sebi-proposes-to-relax-limits-for-approval-disclosure-of-related-party-transactions-13385939.html" target="_blank">Moneycontrol: SEBI RPT Analysis</a></li>
+      </ul>
+    `
+  },
+  {
+    id: 6,
+    slug: "fpi-love-story-ddlj",
+    title: "The FPI Love Story: Dilwale Portfolio Le Jayenge",
+    image: "/7.jpg", // Placeholder for new image
+    fileName: "THE FPI LOVE STORY.pdf",
+    author: "The Jargonaut",
+    category: "Foreign Investment & Regulations",
+    createdAt: "2025-09-15",
+    updatedAt: "2025-09-15",
+    tags: [
+      "FPI",
+      "SEBI",
+      "RBI",
+      "Dilwale Dulhania Le Jayenge",
+      "Bonds",
+      "Regulatory Reforms"
+    ],
+    content: `
+      <p><strong>The FPI Love Story: Dilwale Portfolio Le Jayenge</strong></p>
+
+      <p>Foreign Portfolio Investors (FPIs) have always played the part of the charming overseas suitor in India's financial love story. Picture them as Shah Rukh Khan in <em>Dilwale Dulhania Le Jayenge</em>—NRI charisma intact, suitcases packed, this time not with love letters but with crisp foreign currency.</p>
+
+      <p>Standing at the gate of the Mumbai airport, our hero sees two elders waiting:</p>
+      <ul>
+        <li><strong>SEBI:</strong> The over-protective father channeling Amrish Puri, folding his arms and growling, <em>"Yeh shaadi nahi ho sakti!"</em></li>
+        <li><strong>RBI:</strong> The genial uncle in full Anupam Kher mode, slipping the hero a plate of laddoos and winking, <em>"Jaa Simran, jee le apni zindagi."</em></li>
+      </ul>
+
+      <p>That tension between caution and encouragement frames every reform to India's FPI regime. 2025 delivered three plot-shaping amendments that explain why the hero still boards the train back to India—only now with fewer bureaucratic speed-breakers.</p>
+
+      <h2>Amendment 1: "Mujhe Sirf Mandir Jana Hai" (August 2025)</h2>
+      <p>In August 2025, SEBI introduced a relaxation for <strong>Government-Securities-only FPIs</strong>. Until this year, investing in low-risk T-bills required the same exhaustive documentation as complex derivatives. SEBI finally conceded that sovereign-debt specialists posed far less market risk.</p>
+      
+      <p><strong>The "IGB-FPI" Category:</strong> Entities investing exclusively in Indian Government Bonds may now skip investor-group disclosures and enjoy longer KYC cycles.</p>
+
+      <blockquote>
+        <strong>Bollywood Translation:</strong><br>
+        Hero: "Uncle, mujhe sirf mandir jana hai (I just want to visit the temple/G-Secs)."<br>
+        SEBI (Amrish Puri): "Theek hai. If it's only the mandir, I won't demand your entire family tree."
+      </blockquote>
+
+      <h2>Amendment 2: "Dance As Long As You Want" (May 2025)</h2>
+      <p>Historically, FPIs faced speed limits in the corporate bond market: short-term investment caps and issuer concentration limits. These rules prevented hot-money gyrations but locked investors into sub-optimal positions.</p>
+
+      <p>RBI's circular of May 7, 2025, tore those pages out, abolishing both the short-term investment cap and the issuer concentration limit. This aligns India's debt rules with global best practices and deepens secondary-market liquidity.</p>
+
+      <blockquote>
+        <strong>Bollywood Translation:</strong><br>
+        Before: "Beta, you can only dance with this one cousin, and only for 30 minutes."<br>
+        Now (RBI Uncle): "Arre yaar, let him dance with everyone—till the DJ goes home."
+      </blockquote>
+
+      <h2>Amendment 3: "Aath Baje Ghar Aajana" (The Curfew)</h2>
+      <p>Even liberalisation has a curfew. For FY 2025-26, aggregate ceilings remain intact:</p>
+      <ul>
+        <li>6% of outstanding General Government securities</li>
+        <li>15% for State Development Loans</li>
+        <li>15% for corporate bonds</li>
+      </ul>
+      
+      <p>This brings us back to Papa SEBI tapping his wristwatch. The message is clear: <em>"Enjoy your newfound freedom, but remember whose roof you dance under."</em></p>
+
+      <h2>Conclusion: The Train is Hurtling Forward</h2>
+      <p>Taken together, the 2025 trilogy illustrates a deliberate choreography between risk containment and market depth. SEBI's sovereign-debt carve-out reduces friction where systemic risk is minimal, while RBI's removal of bond-portfolio shackles acknowledges that sophisticated investors require agility.</p>
+
+      <p>The Bollywood metaphor is more than theatre: the hero's dollars are essential dowry for India's developmental aspirations. Shah Rukh has not only secured Simran's hand; he has won grudging respect from Papa and a triumphant nod from the ever-supportive uncle.</p>
+
+      <hr>
+      <h3>References</h3>
+      <ul style="font-size: 0.9rem; word-break: break-all;">
+        <li><a href="https://www.sebi.gov.in/legal/regulations/aug-2025/securities-and-exchange-board-of-india-foreign-portfolio-investors-regulations-2019-last-amended-on-august-12-2025-_96167.html" target="_blank">SEBI FPI Regulations (Aug 2025)</a></li>
+        <li><a href="https://www.sebi.gov.in/legal/circulars/sep-2025/ease-of-regulatory-compliances-for-fpis-investing-only-in-government-securities_96549.html" target="_blank">SEBI Circular: Ease of Compliance for G-Sec FPIs</a></li>
+        <li><a href="https://vinodkothari.com/2025/05/rbi-removes-short-term-investment-limits-and-concentration-limits-in-case-of-fpi/" target="_blank">Vinod Kothari: RBI Removes Short-Term Limits</a></li>
+      </ul>
+    `
+  },
+  {
+    id: 7,
     slug: "sebi-aiml-guidelines",
     title: "SEBI's AI/ML Guidelines",
     image: "/1.jpeg", // AI & Technology Theme
@@ -416,7 +561,7 @@ export const blogs = [
         <li><a href="https://www.sebi.gov.in/reports-and-statistics/reports/jun-2025/consultation-paper-on-guidelines-for-responsible-usage-of-ai-ml-in-indian-securities-markets_94687.html" target="_blank">SEBI Official Consultation Paper (June 2025)</a></li>
       </ul>
     `
-  }
+  },
 ];
 
 export default blogs;
