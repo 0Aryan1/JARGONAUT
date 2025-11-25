@@ -10,6 +10,7 @@ import { blogs } from '../data/blogs';
 function Home() {
   const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showAllBlogs, setShowAllBlogs] = useState(false);
 
   return (
     <div className="min-h-screen bg-[#0a0b14]">
@@ -154,10 +155,22 @@ function Home() {
           <div className="mt-20">
             <h3 className="text-3xl font-bold text-white mb-8">All Blog Posts</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {blogs.slice(3).map((blog) => (
+              {(showAllBlogs ? blogs : blogs.slice(0, 3)).map((blog) => (
                 <BlogCardLarge key={blog.id} blog={blog} />
               ))}
             </div>
+            
+            {/* View All Blogs Button */}
+            {!showAllBlogs && (
+              <div className="mt-12 text-center">
+                <button
+                  onClick={() => setShowAllBlogs(true)}
+                  className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-semibold py-3 px-10 rounded-full border border-white/30 transition-all duration-300 hover:scale-105"
+                >
+                  View All Blogs
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
