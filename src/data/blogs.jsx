@@ -3,115 +3,11 @@
 export const blogs = [
   {
     id: 1,
-    slug: "sebi-aiml-guidelines",
-    title: "SEBI's AI/ML Guidelines",
-    image: "https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2832&auto=format&fit=crop", // AI & Technology Theme
-    fileName: "SEBI's consultation paper.docx",
-    author: "Dev Agrawal",
-    category: "Securities Regulation",
-    tags: [
-      "SEBI",
-      "AI",
-      "Machine Learning",
-      "Securities Market",
-      "Consultation Paper",
-      "Governance",
-      "Investor Protection"
-    ],
-    content: `
-      <p><strong>SEBI's AI/ML Guidelines</strong></p>
-      
-      <p>Picture this: It's 7 PM at the usual chai tapri near Law College, where future advocates gather after Constitutional Law lectures. The discussion today isn't about the latest Supreme Court judgment or tomorrow's Civil Procedure assignment—it's about SEBI's groundbreaking consultation paper on <strong>AI/ML [“Artificial Intelligence/Machine Learning”]</strong> guidelines that dropped on June 20, 2025, and has the entire securities market buzzing like a group chat after someone drops major tea.</p>
-
-      <p><em>The modern building of the Securities and Exchange Board of India (SEBI), the financial regulator for the Indian securities market.</em></p>
-
-      <h2>The Plot Twist That Even Rohit Shetty Couldn't Script</h2>
-      
-      <p>Just when everyone thought 2025 would be all about Salman Khan's "Sikandar" dominating box office collections and Alia Bhatt's "Alpha" breaking the spy universe ceiling, SEBI decided to steal the spotlight with something even more dramatic—a comprehensive regulatory framework for artificial intelligence in securities markets.</p>
-      
-      <p>Think of it this way: if the securities market were a Bollywood movie, AI/ML applications have been the supporting actors quietly doing all the heavy lifting—from KYC processing to algorithmic trading, risk management to customer support chatbots. But now, SEBI wants to give them main character treatment with proper regulatory recognition and oversight.</p>
-      
-      <p>The consultation paper, seeking public comments until July 11, 2025, represents what legal scholars might call a "regulatory evolution"—moving from ad-hoc AI usage to structured governance. It's like the difference between random TikTok videos and a well-scripted Netflix series.</p>
-
-      <h2>The Five-Point Constitutional Framework: More Organized Than the Supreme Court's Nine-Judge Bench</h2>
-
-      <p>SEBI's working group has crafted what can only be described as the "Panchayat of AI Governance"—five fundamental principles that would make even ancient Indian legal traditions proud:</p>
-
-      <ol>
-        <li>
-          <strong>Model Governance: The "Senior Counsel" Principle</strong><br>
-          Just like how every legal case needs a senior advocate who takes ultimate responsibility, SEBI mandates that market participants appoint senior management with technical expertise to oversee AI/ML models. This isn't some intern monitoring algorithms while scrolling through Instagram Reels—this requires skilled internal teams with the legal equivalent of domain expertise. The governance framework includes fallback plans, audit trails, and exception handling—essentially creating a legal safety net more comprehensive than the provisions in the Companies Act, 2013.
-        </li>
-        <br>
-        <li>
-          <strong>Investor Protection & Disclosure: The "Right to Information" for AI</strong><br>
-          Here's where it gets interesting for us law students. SEBI has essentially created an AI-specific disclosure regime that rivals the transparency requirements under securities law. If AI tools directly impact clients—whether through algorithmic trading, portfolio management, or advisory services—firms must disclose everything in plain, client-friendly language. This includes model accuracy, risks, limitations, and fees—basically, the AI equivalent of a prospectus under the Companies Act.
-        </li>
-        <br>
-        <li>
-          <strong>Testing Framework: More Rigorous Than UPSC Mains</strong><br>
-          The testing requirements are so comprehensive, they make Sikandar's action sequences look simple. SEBI demands segregated testing environments, shadow testing, and continuous monitoring. Plus, firms must retain data logs and documentation for a minimum of five years—that's longer than most law degrees!
-        </li>
-        <br>
-        <li>
-          <strong>Fairness & Bias: The "Article 14 of AI"</strong><br>
-          Drawing inspiration from constitutional equality principles, SEBI requires non-discriminatory outcomes and diverse datasets. The regulator essentially wants AI models to follow the "reasonable classification test" from administrative law—any algorithmic decisions must be fair, reasonable, and non-arbitrary.
-        </li>
-        <br>
-        <li>
-          <strong>Data Privacy & Cyber Security: The "Fundamental Right to Digital Privacy"</strong><br>
-          Post the Justice K.S. Puttaswamy judgment, privacy has constitutional sanctity. SEBI's requirements for data security policies, cybersecurity protocols, and immediate breach reporting align with this judicial evolution. Firms must maintain privacy law compliance with the rigor expected in landmark Supreme Court cases.
-        </li>
-      </ol>
-
-      <h2>The "Regulatory Lite" Innovation: SEBI's Version of Alternative Dispute Resolution</h2>
-      
-      <p>Here's the masterstroke that shows SEBI's legal sophistication: they've proposed a "regulatory lite" framework for AI usage that doesn't directly impact customers. It's like creating summary procedures in civil litigation—streamlined for lower-risk scenarios while maintaining full procedural rigor for high-stakes situations.</p>
-
-      <h2>Current Market Applications: The Supporting Cast Getting Star Treatment</h2>
-      <p>The consultation paper reveals that exchanges, brokers, and mutual funds are already using AI extensively:</p>
-      <ul>
-        <li><strong>Stock Exchanges:</strong> Advanced cybersecurity, market surveillance, social media analytics, and member support chatbots.</li>
-        <li><strong>Brokers:</strong> KYC processing, product recommendations, order execution, and anti-money laundering.</li>
-        <li><strong>Mutual Funds:</strong> Customer segmentation, support services, and cybersecurity tools.</li>
-      </ul>
-
-      <h2>Global Context & Implementation</h2>
-      <p>SEBI's approach follows international best practices from IOSCO, FINRA, MAS, and other global regulators. The framework aligns with OECD AI principles and draws from the updated IOSCO documentation on AI in capital markets.</p>
-
-      <h3>Implementation Timeline: The "Limitation Period" for Compliance</h3>
-      <ul>
-        <li><strong>Model Governance:</strong> Continuous compliance requirement</li>
-        <li><strong>Disclosure:</strong> Before deployment of client-impacting AI</li>
-        <li><strong>Testing:</strong> Pre-deployment and ongoing monitoring</li>
-        <li><strong>Fairness:</strong> During development and continuous auditing</li>
-        <li><strong>Privacy:</strong> Real-time compliance obligation</li>
-      </ul>
-
-      <h2>Conclusion: The Chai Stall Consensus</h2>
-      <p>As the evening chai session winds down and law students head back to their Constitutional Law textbooks, the consensus is clear: SEBI's AI/ML consultation paper represents regulatory statesmanship of the highest order. The five-principle framework balances innovation with protection, efficiency with accountability, and progress with prudence.</p>
-      
-      <p>So mark your calendars: <strong>July 11, 2025</strong>, isn't just another deadline—it's the closing date for public comments on what might become the most significant piece of financial technology regulation in Indian legal history.</p>
-      
-      <p><em>"Abhi picture baaki hai, dost"</em> – and this regulatory drama is just getting started.</p>
-
-      <hr>
-      <h3>References & Further Reading</h3>
-      <ul style="font-size: 0.9rem; word-break: break-all;">
-        <li><a href="https://www.lakshmisri.com/insights/articles/sebi-s-consultation-paper-and-the-winds-of-ai-governance/" target="_blank">Lakshmisri: SEBI's Consultation Paper and AI Governance</a></li>
-        <li><a href="https://www.scconline.com/blog/post/2025/02/11/sebi-introduces-concept-of-ai/" target="_blank">SCC Online: SEBI Introduces Concept of AI</a></li>
-        <li><a href="https://www.sebi.gov.in/reports-and-statistics/reports/jun-2025/consultation-paper-on-guidelines-for-responsible-usage-of-ai-ml-in-indian-securities-markets_94687.html" target="_blank">SEBI Official Consultation Paper (June 2025)</a></li>
-      </ul>
-    `
-  },
-
-  {
-    id: 2,
     slug: "sebi-algorithmic-trading-framework",
     title: "SEBI's Algorithmic Trading Framework: When Retail Meets Regulation",
-    image: "https://images.unsplash.com/photo-1611974765270-ca1258634369?q=80&w=2664&auto=format&fit=crop", // Trading Charts Theme
+    image: "/2.jpeg", // Trading Charts Theme
     fileName: "SEBI's Algorithmic Trading Framework.docx",
-    author: "Dev Agrawal",
+    author: "Unknown",
     category: "Securities Regulation",
     createdAt: "2025-02-01",
     updatedAt: "2025-02-01",
@@ -213,14 +109,13 @@ export const blogs = [
       </ul>
     `
   },
-
   {
-    id: 3,
+    id: 2,
     slug: "rbi-digital-lending-revolution",
     title: "RBI's Digital Lending Revolution: From Regulatory Vacuum to Fintech's New Reality Check",
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2670&auto=format&fit=crop", // Fintech/Mobile Money Theme
+    image: "/3.jpeg", // Fintech/Mobile Money Theme
     fileName: "RBI's Digital Lending Revolution_ From Regulatory.docx",
-    author: "Dev Agrawal",
+    author: "Unknown",
     category: "Banking & Fintech",
     createdAt: "2025-05-08",
     updatedAt: "2025-05-08",
@@ -313,12 +208,12 @@ export const blogs = [
   },
 
   {
-    id: 4,
+    id: 3,
     slug: "fo-money-heist-preopening",
     title: "The Professor’s New Playbook: NSE’s PreOpening for F&O",
     image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=2670&auto=format&fit=crop", // Stock Exchange/Market Theme
     fileName: "F&O AND MONEY HEIST (1).docx",
-    author: "Dev Agrawal",
+    author: "Unknown",
     category: "Derivatives & Market Microstructure",
     createdAt: "2025-05-29",
     updatedAt: "2025-05-29",
@@ -363,12 +258,12 @@ export const blogs = [
   },
 
   {
-    id: 5,
+    id: 4,
     slug: "workplace-safety-maternity-disclosures",
     title: "Profits and Silence: Disclosing Workplace Safety & Maternity Benefits",
-    image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2669&auto=format&fit=crop", // Corporate/Professional Theme
+    image: "/5.jpeg", // Corporate/Professional Theme
     fileName: "disclose data regarding workplace safety and maternity benefits (1).docx",
-    author: "Dev Agrawal",
+    author: "Unknown",
     category: "Corporate Governance & Labour",
     createdAt: "2025-07-14",
     updatedAt: "2025-07-14",
@@ -415,6 +310,110 @@ export const blogs = [
         <li><a href="https://ca2013.com/wp-content/uploads/2025/06/MCA-Notification-regarding-Companies-Accounts-Second-Amendment-Rules-2025-dated-30.05.2025.pdf" target="_blank">MCA Notification (May 2025)</a></li>
         <li><a href="https://www.india-briefing.com/news/india-mandates-workplace-harassment-maternity-disclosures-in-board-reports-38025.html/" target="_blank">India Briefing: Workplace Harassment & Maternity Disclosures</a></li>
         <li><a href="https://www.nishithdesai.com/fileadmin/user_upload/Html/Hotline/Yes_Governance_Matters_Jul1825-M.html" target="_blank">Nishith Desai Associates: Governance Matters</a></li>
+      </ul>
+    `
+  },
+  {
+    id: 5,
+    slug: "sebi-aiml-guidelines",
+    title: "SEBI's AI/ML Guidelines",
+    image: "/1.jpeg", // AI & Technology Theme
+    fileName: "SEBI's consultation paper.docx",
+    author: "Dev Agrawal",
+    category: "Securities Regulation",
+    createdAt: "2025-06-20",
+    tags: [
+      "SEBI",
+      "AI",
+      "Machine Learning",
+      "Securities Market",
+      "Consultation Paper",
+      "Governance",
+      "Investor Protection"
+    ],
+    content: `
+      <p><strong>SEBI's AI/ML Guidelines</strong></p>
+      
+      <p>Picture this: It's 7 PM at the usual chai tapri near Law College, where future advocates gather after Constitutional Law lectures. The discussion today isn't about the latest Supreme Court judgment or tomorrow's Civil Procedure assignment—it's about SEBI's groundbreaking consultation paper on <strong>AI/ML [“Artificial Intelligence/Machine Learning”]</strong> guidelines that dropped on June 20, 2025, and has the entire securities market buzzing like a group chat after someone drops major tea.</p>
+
+      <p><em>The modern building of the Securities and Exchange Board of India (SEBI), the financial regulator for the Indian securities market.</em></p>
+
+      <h2>The Plot Twist That Even Rohit Shetty Couldn't Script</h2>
+      
+      <p>Just when everyone thought 2025 would be all about Salman Khan's "Sikandar" dominating box office collections and Alia Bhatt's "Alpha" breaking the spy universe ceiling, SEBI decided to steal the spotlight with something even more dramatic—a comprehensive regulatory framework for artificial intelligence in securities markets.</p>
+      
+      <p>Think of it this way: if the securities market were a Bollywood movie, AI/ML applications have been the supporting actors quietly doing all the heavy lifting—from KYC processing to algorithmic trading, risk management to customer support chatbots. But now, SEBI wants to give them main character treatment with proper regulatory recognition and oversight.</p>
+      
+      <p>The consultation paper, seeking public comments until July 11, 2025, represents what legal scholars might call a "regulatory evolution"—moving from ad-hoc AI usage to structured governance. It's like the difference between random TikTok videos and a well-scripted Netflix series.</p>
+
+      <h2>The Five-Point Constitutional Framework: More Organized Than the Supreme Court's Nine-Judge Bench</h2>
+
+      <p>SEBI's working group has crafted what can only be described as the "Panchayat of AI Governance"—five fundamental principles that would make even ancient Indian legal traditions proud:</p>
+
+      <ol>
+        <li>
+          <strong>Model Governance: The "Senior Counsel" Principle</strong><br>
+          Just like how every legal case needs a senior advocate who takes ultimate responsibility, SEBI mandates that market participants appoint senior management with technical expertise to oversee AI/ML models. This isn't some intern monitoring algorithms while scrolling through Instagram Reels—this requires skilled internal teams with the legal equivalent of domain expertise. The governance framework includes fallback plans, audit trails, and exception handling—essentially creating a legal safety net more comprehensive than the provisions in the Companies Act, 2013.
+        </li>
+        <br>
+        <li>
+          <strong>Investor Protection & Disclosure: The "Right to Information" for AI</strong><br>
+          Here's where it gets interesting for us law students. SEBI has essentially created an AI-specific disclosure regime that rivals the transparency requirements under securities law. If AI tools directly impact clients—whether through algorithmic trading, portfolio management, or advisory services—firms must disclose everything in plain, client-friendly language. This includes model accuracy, risks, limitations, and fees—basically, the AI equivalent of a prospectus under the Companies Act.
+        </li>
+        <br>
+        <li>
+          <strong>Testing Framework: More Rigorous Than UPSC Mains</strong><br>
+          The testing requirements are so comprehensive, they make Sikandar's action sequences look simple. SEBI demands segregated testing environments, shadow testing, and continuous monitoring. Plus, firms must retain data logs and documentation for a minimum of five years—that's longer than most law degrees!
+        </li>
+        <br>
+        <li>
+          <strong>Fairness & Bias: The "Article 14 of AI"</strong><br>
+          Drawing inspiration from constitutional equality principles, SEBI requires non-discriminatory outcomes and diverse datasets. The regulator essentially wants AI models to follow the "reasonable classification test" from administrative law—any algorithmic decisions must be fair, reasonable, and non-arbitrary.
+        </li>
+        <br>
+        <li>
+          <strong>Data Privacy & Cyber Security: The "Fundamental Right to Digital Privacy"</strong><br>
+          Post the Justice K.S. Puttaswamy judgment, privacy has constitutional sanctity. SEBI's requirements for data security policies, cybersecurity protocols, and immediate breach reporting align with this judicial evolution. Firms must maintain privacy law compliance with the rigor expected in landmark Supreme Court cases.
+        </li>
+      </ol>
+
+      <h2>The "Regulatory Lite" Innovation: SEBI's Version of Alternative Dispute Resolution</h2>
+      
+      <p>Here's the masterstroke that shows SEBI's legal sophistication: they've proposed a "regulatory lite" framework for AI usage that doesn't directly impact customers. It's like creating summary procedures in civil litigation—streamlined for lower-risk scenarios while maintaining full procedural rigor for high-stakes situations.</p>
+
+      <h2>Current Market Applications: The Supporting Cast Getting Star Treatment</h2>
+      <p>The consultation paper reveals that exchanges, brokers, and mutual funds are already using AI extensively:</p>
+      <ul>
+        <li><strong>Stock Exchanges:</strong> Advanced cybersecurity, market surveillance, social media analytics, and member support chatbots.</li>
+        <li><strong>Brokers:</strong> KYC processing, product recommendations, order execution, and anti-money laundering.</li>
+        <li><strong>Mutual Funds:</strong> Customer segmentation, support services, and cybersecurity tools.</li>
+      </ul>
+
+      <h2>Global Context & Implementation</h2>
+      <p>SEBI's approach follows international best practices from IOSCO, FINRA, MAS, and other global regulators. The framework aligns with OECD AI principles and draws from the updated IOSCO documentation on AI in capital markets.</p>
+
+      <h3>Implementation Timeline: The "Limitation Period" for Compliance</h3>
+      <ul>
+        <li><strong>Model Governance:</strong> Continuous compliance requirement</li>
+        <li><strong>Disclosure:</strong> Before deployment of client-impacting AI</li>
+        <li><strong>Testing:</strong> Pre-deployment and ongoing monitoring</li>
+        <li><strong>Fairness:</strong> During development and continuous auditing</li>
+        <li><strong>Privacy:</strong> Real-time compliance obligation</li>
+      </ul>
+
+      <h2>Conclusion: The Chai Stall Consensus</h2>
+      <p>As the evening chai session winds down and law students head back to their Constitutional Law textbooks, the consensus is clear: SEBI's AI/ML consultation paper represents regulatory statesmanship of the highest order. The five-principle framework balances innovation with protection, efficiency with accountability, and progress with prudence.</p>
+      
+      <p>So mark your calendars: <strong>July 11, 2025</strong>, isn't just another deadline—it's the closing date for public comments on what might become the most significant piece of financial technology regulation in Indian legal history.</p>
+      
+      <p><em>"Abhi picture baaki hai, dost"</em> – and this regulatory drama is just getting started.</p>
+
+      <hr>
+      <h3>References & Further Reading</h3>
+      <ul style="font-size: 0.9rem; word-break: break-all;">
+        <li><a href="https://www.lakshmisri.com/insights/articles/sebi-s-consultation-paper-and-the-winds-of-ai-governance/" target="_blank">Lakshmisri: SEBI's Consultation Paper and AI Governance</a></li>
+        <li><a href="https://www.scconline.com/blog/post/2025/02/11/sebi-introduces-concept-of-ai/" target="_blank">SCC Online: SEBI Introduces Concept of AI</a></li>
+        <li><a href="https://www.sebi.gov.in/reports-and-statistics/reports/jun-2025/consultation-paper-on-guidelines-for-responsible-usage-of-ai-ml-in-indian-securities-markets_94687.html" target="_blank">SEBI Official Consultation Paper (June 2025)</a></li>
       </ul>
     `
   }
