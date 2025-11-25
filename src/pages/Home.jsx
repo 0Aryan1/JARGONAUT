@@ -209,37 +209,6 @@ function Home() {
               </p>
             </div>
           </div>
-
-          {/* What We Cover */}
-          <div className="mt-16">
-            <h3 className="text-3xl font-bold text-white mb-8 text-center">What We Cover</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-8 hover:bg-white/15 transition-all duration-300 hover:scale-105 transform-gpu">
-                <div className="text-4xl mb-4">⚖️</div>
-                <h4 className="text-xl font-bold text-white mb-3">Corporate Law</h4>
-                <p className="text-white/70">
-                  From mergers and acquisitions to corporate governance, we break down the legal framework 
-                  that shapes modern business.
-                </p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-8 hover:bg-white/15 transition-all duration-300 hover:scale-105 transform-gpu">
-                <div className="text-4xl mb-4">💳</div>
-                <h4 className="text-xl font-bold text-white mb-3">Fintech Regulations</h4>
-                <p className="text-white/70">
-                  Explore the evolving world of financial technology regulations, cryptocurrency laws, 
-                  and digital payment frameworks.
-                </p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-8 hover:bg-white/15 transition-all duration-300 hover:scale-105 transform-gpu">
-                <div className="text-4xl mb-4">📈</div>
-                <h4 className="text-xl font-bold text-white mb-3">Market Dynamics</h4>
-                <p className="text-white/70">
-                  Understand market regulations, trading laws, and the legal aspects of investment 
-                  strategies explained through relatable scenarios.
-                </p>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
       
