@@ -358,7 +358,7 @@
 .pc-details {
   width: 100%;
   position: absolute;
-  top: 2em;
+  bottom: 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
