@@ -190,7 +190,7 @@ function Home() {
             <div className="flex justify-center">
               <ProfileCard
                 name="Dev Agrawal"
-                title="Legal Tech Blogger"
+                title="Founder"
                 handle="aryanagrawal"
                 status="Writing Amazing Content"
                 contactText="Get in Touch"
