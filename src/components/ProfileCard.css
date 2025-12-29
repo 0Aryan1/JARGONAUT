@@ -427,10 +427,6 @@
     max-height: 450px;
   }
 
-  .pc-details {
-    top: 2em;
-  }
-
   .pc-details h3 {
     font-size: min(4svh, 2.5em);
   }
@@ -471,10 +467,6 @@
   .pc-card {
     height: 60svh;
     max-height: 380px;
-  }
-
-  .pc-details {
-    top: 1.5em;
   }
 
   .pc-details h3 {
