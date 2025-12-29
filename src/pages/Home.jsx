@@ -35,9 +35,9 @@ function Home() {
                   className="relative hover:scale-105 transition-transform duration-200 inline-block"
                 >
                   <img 
-                    src="/logo.png" 
+                    src="/wlogo.png" 
                     alt="The Jargonaut Logo" 
-                    className="h-14 md:h-20 lg:h-24 w-auto object-contain"
+                    className="h-12 md:h-14 lg:h-16 w-auto object-contain"
                   />
                 </button>
               </div>
