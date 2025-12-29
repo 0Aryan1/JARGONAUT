@@ -136,7 +136,7 @@ function About() {
 
             {/* About/Mission Text - RIGHT SIDE */}
             <div className="space-y-6">
-              <h3 className="text-3xl font-bold text-white">Our Mission</h3>
+              <h3 className="text-3xl font-bold text-white">Founder Note</h3>
               <p className="text-white/80 leading-relaxed text-justify">
                 We believe that corporate law doesn't have to be boring or intimidating. At The Jargonaut, 
                 we break down complex legal concepts using references from movies, TV shows, and pop culture 
@@ -173,7 +173,7 @@ function About() {
 
             {/* About/Mission Text - RIGHT SIDE */}
             <div className="space-y-6">
-              <h3 className="text-3xl font-bold text-white">Our Mission</h3>
+              <h3 className="text-3xl font-bold text-white">Developer Note</h3>
               <p className="text-white/80 leading-relaxed text-justify">
               I am Aryan Agrawal, an experienced developer focused on building clean, reliable, and user-oriented digital solutions. 
               </p>
