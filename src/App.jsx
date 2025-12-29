@@ -1,18 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import './App.css';
-import Home from './pages/Home';
-import BlogDetail from './pages/BlogDetail';
 
-function App() {
+export default function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/blog/:id" element={<BlogDetail />} />
-      </Routes>
-    </Router>
+    <div className="App">
+      <Outlet />
+    </div>
   );
 }
 
-export default App;
+ 

@@ -1,49 +1,105 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Carousel from '../components/carousel/Carousel';
 import BlogCardLarge from '../components/BlogCardLarge';
 import Footer from '../components/Footer';
 import Galaxy from '../components/Galaxy';
-import ProfileCard from '../components/ProfileCard';
+import CircularGallery from '../components/CircularGallery';
 import { blogs } from '../data/blogs';
 
 function Home() {
   const navigate = useNavigate();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [showAllBlogs, setShowAllBlogs] = useState(false);
+
+  const handleCardClick = (episodeId) => {
+    if (episodeId && typeof episodeId === 'number') {
+      navigate(`/hanketsu?episode=${episodeId}`);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-[#0a0b14]">
       {/* Navbar */}
       <nav className="absolute top-4 left-4 right-4 z-50">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-lg transform-gpu transition-all duration-300 hover:bg-white/15">
-            <div className="flex items-center justify-between h-16 px-8">
+          <div className="bg-white/10 backdrop-blur-md rounded-3xl border border-white/20 shadow-lg transform-gpu transition-all duration-300 hover:bg-white/15 overflow-hidden">
+            <div className="flex items-center justify-between h-16 px-4 md:px-8">
               {/* Logo */}
               <div className="flex-shrink-0">
                 <button 
-                  onClick={() => navigate('/')}
-                  className="text-white font-bold text-xl relative hover:scale-105 transition-transform duration-200 inline-block"
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    navigate('/');
+                  }}
+                  className="relative hover:scale-105 transition-transform duration-200 inline-block"
                 >
-                  LOGO
-                  <div className="absolute inset-0 bg-white/20 blur-sm -z-10 rounded-lg transform scale-110"></div>
+                  <img 
+                    src="/logo.png" 
+                    alt="The Jargonaut Logo" 
+                    className="h-14 md:h-20 lg:h-24 w-auto object-contain"
+                  />
                 </button>
               </div>
               
-              {/* Navigation Items */}
+              {/* Desktop Navigation Items */}
               <div className="hidden md:block">
                 <div className="ml-10 flex items-center space-x-8">
-                  <a href="#blogs" className="nav-link relative px-6 py-2 text-white/90 hover:text-white transition-all duration-200 hover:scale-105 group">
-                    Blogs
-                    <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 rounded-full transition-all duration-200"></div>
-                  </a>
-                  <a href="#about" className="nav-link relative px-6 py-2 text-white/90 hover:text-white transition-all duration-200 hover:scale-105 group">
+                  <button onClick={() => navigate('/about')} className="nav-link relative px-6 py-2 text-white/90 hover:text-white transition-all duration-200 hover:scale-105 group">
                     About
                     <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 rounded-full transition-all duration-200"></div>
-                  </a>
-                  <a href="#contact" className="nav-link relative px-6 py-2 text-white/90 hover:text-white transition-all duration-200 hover:scale-105 group">
+                  </button>
+                  <button onClick={() => navigate('/contact')} className="nav-link relative px-6 py-2 text-white/90 hover:text-white transition-all duration-200 hover:scale-105 group">
                     Contact Us
                     <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 rounded-full transition-all duration-200"></div>
-                  </a>
+                  </button>
                 </div>
+              </div>
+
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="md:hidden text-white p-2 hover:bg-white/10 rounded-full transition-all duration-200 z-10"
+                aria-label="Toggle menu"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {mobileMenuOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                  )}
+                </svg>
+              </button>
+            </div>
+
+            {/* Mobile Menu */}
+            <div 
+              className={`md:hidden transition-all duration-300 ease-in-out ${
+                mobileMenuOpen 
+                  ? 'max-h-48 opacity-100' 
+                  : 'max-h-0 opacity-0 pointer-events-none'
+              }`}
+            >
+              <div className="px-4 pb-4 pt-2 space-y-1 border-t border-white/10">
+
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    navigate('/about');
+                  }}
+                  className="block px-4 py-3 text-white/90 hover:text-white hover:bg-white/10 rounded-xl transition-all duration-200 text-sm font-medium"
+                >
+                  About
+                </button>
+                <button
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                    navigate('/contact');
+                  }}
+                  className="block px-4 py-3 text-white/90 hover:text-white hover:bg-white/10 rounded-xl transition-all duration-200 text-sm font-medium"
+                >
+                  Contact Us
+                </button>
               </div>
             </div>
           </div>
@@ -51,7 +107,7 @@ function Home() {
       </nav>
       
       {/* Hero Section */}
-      <div className="relative h-[80vh] overflow-hidden">
+      <div className="relative h-screen overflow-hidden">
         {/* Galaxy Background */}
         <div className="absolute inset-0 w-full h-full z-10">
           <Galaxy 
@@ -73,15 +129,51 @@ function Home() {
         {/* Hero Title */}
         <div className="absolute inset-0 z-30 pointer-events-none">
           <div className="max-w-7xl mx-auto h-full">
-            <div className="h-full flex flex-col justify-center px-8">
-              <h1 className="hero-title text-7xl md:text-8xl lg:text-9xl text-white font-normal tracking-wide">
-                THE<br />JARGONAUT
+            <div className="h-full flex flex-col justify-center px-4 md:px-8">
+              <h1 className="hero-title text-4xl sm:text-5xl md:text-8xl lg:text-9xl text-white tracking-wide break-words">
+                THE<br />
+                <span className="font-bold">JARGONAUT</span>
               </h1>
-              <p className="text-base md:text-lg text-white/90 max-w-xl mt-6 tracking-wider uppercase">
+              <p className="text-sm md:text-base lg:text-lg text-white/90 max-w-xl mt-4 md:mt-6 tracking-wide md:tracking-wider uppercase">
                 Get ready to embark on a voyage of corporate law in the spaceship of pop-culture
               </p>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Hanketsu section */}
+      <div className="py-10 md:py-16 lg:py-20">
+        <div className="w-full px-4 md:px-8 lg:px-12 mb-8 md:mb-12 lg:mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Left side - Video */}
+            <div className="w-full">
+              <video 
+                className="w-full h-auto rounded-lg shadow-2xl"
+                autoPlay 
+                loop 
+                muted
+              >
+                <source src="/hanketsu.MP4" type="video/mp4" />
+              </video>
+            </div>
+            
+            {/* Right side - Content */}
+            <div className="space-y-6 text-white">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">Hanketsu</h1>
+              <p className="text-base md:text-lg text-white/80 leading-relaxed text-justify">
+                They said that the hallowed pronouncements of apex courts, those monumental edifices of judicial reasoning, were destined to remain entombed within impenetrable legal compendiums, accessible only to the chosen few who could decipher their arcane syntax. But they were wrong.
+We proudly present to you: HANKETSU (判決), where The Jargonaut unleashes its most formidable technique yet: the alchemical fusion of jurisprudential excellence and sequential art! Behold as constitutional showdowns explode across panels with the intensity they always possessed but never displayed! Watch as the ratio decidendi crystallizes before your very eyes, each obiter dictum rendered with devastating clarity! Let us sail through the visual odysseys, through the most consequential judicial battles ever waged. The petitioner's contentions! The respondent's riposte! The Court's inexorable march toward precedent-setting glory! Every factual matrix, every doctrinal collision, every interpretative coup de grâce, transformed into an unforgettable saga that sears itself into your memory.
+<br /><br />
+Because landmark judgments aren't just legal doctrine... they're legends waiting to be told.
+<br /><br />
+This is HANKETSU. This is justice, unleashed
+              </p>
+            </div>
+          </div>
+        </div>
+        <div className="h-[350px] xs:h-[400px] sm:h-[450px] md:h-[550px] lg:h-[600px] w-full overflow-hidden" style={{ width: "100vw", position: "relative", left: "50%", right: "50%", marginLeft: "-50vw", marginRight: "-50vw"}}>
+          <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} scrollEase={0.02} onCardClick={handleCardClick}/>
         </div>
       </div>
       
@@ -98,95 +190,30 @@ function Home() {
           <div className="mt-20">
             <h3 className="text-3xl font-bold text-white mb-8">All Blog Posts</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {blogs.slice(3).map((blog) => (
+              {(showAllBlogs ? blogs : blogs.slice(0, 3)).map((blog) => (
                 <BlogCardLarge key={blog.id} blog={blog} />
               ))}
             </div>
+            
+            {/* View All Blogs Button */}
+            {!showAllBlogs && (
+              <div className="mt-12 text-center">
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    setShowAllBlogs(true);
+                  }}
+                  className="bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white font-semibold py-3 px-10 rounded-full border border-white/30 transition-all duration-300 hover:scale-105"
+                >
+                  View All Blogs
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
-      
-      {/* About Section */}
-      <div id="about" className="px-8 py-20 bg-gradient-to-b from-[#0a0b14] via-[#0f1020] to-[#0a0b14]">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-5xl font-bold text-white mb-4">About The Jargonaut</h2>
-            <p className="text-lg text-white/70 max-w-2xl mx-auto">
-              Your guide to navigating corporate law through the lens of pop culture
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
-            {/* Profile Card - LEFT SIDE */}
-            <div className="flex justify-center">
-              <ProfileCard
-                name="Aryan Agrawal"
-                title="Legal Tech Blogger"
-                handle="aryanagrawal"
-                status="Writing Amazing Content"
-                contactText="Get in Touch"
-                avatarUrl="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80"
-                miniAvatarUrl="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&q=80"
-                showUserInfo={true}
-                enableTilt={true}
-                enableMobileTilt={false}
-                onContactClick={() => window.location.href = '#contact'}
-              />
-            </div>
-
-            {/* About/Mission Text - RIGHT SIDE */}
-            <div className="space-y-6">
-              <h3 className="text-3xl font-bold text-white">Our Mission</h3>
-              <p className="text-white/80 leading-relaxed">
-                We believe that corporate law doesn't have to be boring or intimidating. At The Jargonaut, 
-                we break down complex legal concepts using references from movies, TV shows, and pop culture 
-                that everyone can relate to.
-              </p>
-              <p className="text-white/80 leading-relaxed">
-                Whether you're a law student, professional, or just curious about how the corporate world works, 
-                we're here to make your journey through legal jargon both informative and entertaining.
-              </p>
-              <p className="text-white/80 leading-relaxed">
-                From fintech regulations to corporate governance, from market dynamics to legal tech innovations, 
-                we cover it all with a unique blend of legal expertise and pop culture references that make 
-                learning about law actually fun.
-              </p>
-            </div>
-          </div>
-
-          {/* What We Cover */}
-          <div className="mt-16">
-            <h3 className="text-3xl font-bold text-white mb-8 text-center">What We Cover</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-8 hover:bg-white/15 transition-all duration-300 hover:scale-105 transform-gpu">
-                <div className="text-4xl mb-4">⚖️</div>
-                <h4 className="text-xl font-bold text-white mb-3">Corporate Law</h4>
-                <p className="text-white/70">
-                  From mergers and acquisitions to corporate governance, we break down the legal framework 
-                  that shapes modern business.
-                </p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-8 hover:bg-white/15 transition-all duration-300 hover:scale-105 transform-gpu">
-                <div className="text-4xl mb-4">💳</div>
-                <h4 className="text-xl font-bold text-white mb-3">Fintech Regulations</h4>
-                <p className="text-white/70">
-                  Explore the evolving world of financial technology regulations, cryptocurrency laws, 
-                  and digital payment frameworks.
-                </p>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 p-8 hover:bg-white/15 transition-all duration-300 hover:scale-105 transform-gpu">
-                <div className="text-4xl mb-4">📈</div>
-                <h4 className="text-xl font-bold text-white mb-3">Market Dynamics</h4>
-                <p className="text-white/70">
-                  Understand market regulations, trading laws, and the legal aspects of investment 
-                  strategies explained through relatable scenarios.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
       {/* Footer */}
       <Footer />
     </div>

@@ -3,116 +3,11 @@
 export const blogs = [
   {
     id: 1,
-    slug: "sebi-aiml-guidelines",
-    title: "SEBI's AI/ML Guidelines",
-    image: "https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=2832&auto=format&fit=crop", // AI & Technology Theme
-    fileName: "SEBI's consultation paper.docx",
-    author: "Dev Agrawal",
-    category: "Securities Regulation",
-    createdAt: "2025-06-20",
-    tags: [
-      "SEBI",
-      "AI",
-      "Machine Learning",
-      "Securities Market",
-      "Consultation Paper",
-      "Governance",
-      "Investor Protection"
-    ],
-    content: `
-      <p><strong>SEBI's AI/ML Guidelines</strong></p>
-      
-      <p>Picture this: It's 7 PM at the usual chai tapri near Law College, where future advocates gather after Constitutional Law lectures. The discussion today isn't about the latest Supreme Court judgment or tomorrow's Civil Procedure assignment—it's about SEBI's groundbreaking consultation paper on <strong>AI/ML [“Artificial Intelligence/Machine Learning”]</strong> guidelines that dropped on June 20, 2025, and has the entire securities market buzzing like a group chat after someone drops major tea.</p>
-
-      <p><em>The modern building of the Securities and Exchange Board of India (SEBI), the financial regulator for the Indian securities market.</em></p>
-
-      <h2>The Plot Twist That Even Rohit Shetty Couldn't Script</h2>
-      
-      <p>Just when everyone thought 2025 would be all about Salman Khan's "Sikandar" dominating box office collections and Alia Bhatt's "Alpha" breaking the spy universe ceiling, SEBI decided to steal the spotlight with something even more dramatic—a comprehensive regulatory framework for artificial intelligence in securities markets.</p>
-      
-      <p>Think of it this way: if the securities market were a Bollywood movie, AI/ML applications have been the supporting actors quietly doing all the heavy lifting—from KYC processing to algorithmic trading, risk management to customer support chatbots. But now, SEBI wants to give them main character treatment with proper regulatory recognition and oversight.</p>
-      
-      <p>The consultation paper, seeking public comments until July 11, 2025, represents what legal scholars might call a "regulatory evolution"—moving from ad-hoc AI usage to structured governance. It's like the difference between random TikTok videos and a well-scripted Netflix series.</p>
-
-      <h2>The Five-Point Constitutional Framework: More Organized Than the Supreme Court's Nine-Judge Bench</h2>
-
-      <p>SEBI's working group has crafted what can only be described as the "Panchayat of AI Governance"—five fundamental principles that would make even ancient Indian legal traditions proud:</p>
-
-      <ol>
-        <li>
-          <strong>Model Governance: The "Senior Counsel" Principle</strong><br>
-          Just like how every legal case needs a senior advocate who takes ultimate responsibility, SEBI mandates that market participants appoint senior management with technical expertise to oversee AI/ML models. This isn't some intern monitoring algorithms while scrolling through Instagram Reels—this requires skilled internal teams with the legal equivalent of domain expertise. The governance framework includes fallback plans, audit trails, and exception handling—essentially creating a legal safety net more comprehensive than the provisions in the Companies Act, 2013.
-        </li>
-        <br>
-        <li>
-          <strong>Investor Protection & Disclosure: The "Right to Information" for AI</strong><br>
-          Here's where it gets interesting for us law students. SEBI has essentially created an AI-specific disclosure regime that rivals the transparency requirements under securities law. If AI tools directly impact clients—whether through algorithmic trading, portfolio management, or advisory services—firms must disclose everything in plain, client-friendly language. This includes model accuracy, risks, limitations, and fees—basically, the AI equivalent of a prospectus under the Companies Act.
-        </li>
-        <br>
-        <li>
-          <strong>Testing Framework: More Rigorous Than UPSC Mains</strong><br>
-          The testing requirements are so comprehensive, they make Sikandar's action sequences look simple. SEBI demands segregated testing environments, shadow testing, and continuous monitoring. Plus, firms must retain data logs and documentation for a minimum of five years—that's longer than most law degrees!
-        </li>
-        <br>
-        <li>
-          <strong>Fairness & Bias: The "Article 14 of AI"</strong><br>
-          Drawing inspiration from constitutional equality principles, SEBI requires non-discriminatory outcomes and diverse datasets. The regulator essentially wants AI models to follow the "reasonable classification test" from administrative law—any algorithmic decisions must be fair, reasonable, and non-arbitrary.
-        </li>
-        <br>
-        <li>
-          <strong>Data Privacy & Cyber Security: The "Fundamental Right to Digital Privacy"</strong><br>
-          Post the Justice K.S. Puttaswamy judgment, privacy has constitutional sanctity. SEBI's requirements for data security policies, cybersecurity protocols, and immediate breach reporting align with this judicial evolution. Firms must maintain privacy law compliance with the rigor expected in landmark Supreme Court cases.
-        </li>
-      </ol>
-
-      <h2>The "Regulatory Lite" Innovation: SEBI's Version of Alternative Dispute Resolution</h2>
-      
-      <p>Here's the masterstroke that shows SEBI's legal sophistication: they've proposed a "regulatory lite" framework for AI usage that doesn't directly impact customers. It's like creating summary procedures in civil litigation—streamlined for lower-risk scenarios while maintaining full procedural rigor for high-stakes situations.</p>
-
-      <h2>Current Market Applications: The Supporting Cast Getting Star Treatment</h2>
-      <p>The consultation paper reveals that exchanges, brokers, and mutual funds are already using AI extensively:</p>
-      <ul>
-        <li><strong>Stock Exchanges:</strong> Advanced cybersecurity, market surveillance, social media analytics, and member support chatbots.</li>
-        <li><strong>Brokers:</strong> KYC processing, product recommendations, order execution, and anti-money laundering.</li>
-        <li><strong>Mutual Funds:</strong> Customer segmentation, support services, and cybersecurity tools.</li>
-      </ul>
-
-      <h2>Global Context & Implementation</h2>
-      <p>SEBI's approach follows international best practices from IOSCO, FINRA, MAS, and other global regulators. The framework aligns with OECD AI principles and draws from the updated IOSCO documentation on AI in capital markets.</p>
-
-      <h3>Implementation Timeline: The "Limitation Period" for Compliance</h3>
-      <ul>
-        <li><strong>Model Governance:</strong> Continuous compliance requirement</li>
-        <li><strong>Disclosure:</strong> Before deployment of client-impacting AI</li>
-        <li><strong>Testing:</strong> Pre-deployment and ongoing monitoring</li>
-        <li><strong>Fairness:</strong> During development and continuous auditing</li>
-        <li><strong>Privacy:</strong> Real-time compliance obligation</li>
-      </ul>
-
-      <h2>Conclusion: The Chai Stall Consensus</h2>
-      <p>As the evening chai session winds down and law students head back to their Constitutional Law textbooks, the consensus is clear: SEBI's AI/ML consultation paper represents regulatory statesmanship of the highest order. The five-principle framework balances innovation with protection, efficiency with accountability, and progress with prudence.</p>
-      
-      <p>So mark your calendars: <strong>July 11, 2025</strong>, isn't just another deadline—it's the closing date for public comments on what might become the most significant piece of financial technology regulation in Indian legal history.</p>
-      
-      <p><em>"Abhi picture baaki hai, dost"</em> – and this regulatory drama is just getting started.</p>
-
-      <hr>
-      <h3>References & Further Reading</h3>
-      <ul style="font-size: 0.9rem; word-break: break-all;">
-        <li><a href="https://www.lakshmisri.com/insights/articles/sebi-s-consultation-paper-and-the-winds-of-ai-governance/" target="_blank">Lakshmisri: SEBI's Consultation Paper and AI Governance</a></li>
-        <li><a href="https://www.scconline.com/blog/post/2025/02/11/sebi-introduces-concept-of-ai/" target="_blank">SCC Online: SEBI Introduces Concept of AI</a></li>
-        <li><a href="https://www.sebi.gov.in/reports-and-statistics/reports/jun-2025/consultation-paper-on-guidelines-for-responsible-usage-of-ai-ml-in-indian-securities-markets_94687.html" target="_blank">SEBI Official Consultation Paper (June 2025)</a></li>
-      </ul>
-    `
-  },
-
-  {
-    id: 2,
     slug: "sebi-algorithmic-trading-framework",
     title: "SEBI's Algorithmic Trading Framework: When Retail Meets Regulation",
-    image: "https://images.unsplash.com/photo-1611974765270-ca1258634369?q=80&w=2664&auto=format&fit=crop", // Trading Charts Theme
+    image: "/2.jpeg", // Trading Charts Theme
     fileName: "SEBI's Algorithmic Trading Framework.docx",
-    author: "Unknown",
+    author: "Dev Agrawal",
     category: "Securities Regulation",
     createdAt: "2025-02-01",
     updatedAt: "2025-02-01",
@@ -214,14 +109,13 @@ export const blogs = [
       </ul>
     `
   },
-
   {
-    id: 3,
+    id: 2,
     slug: "rbi-digital-lending-revolution",
     title: "RBI's Digital Lending Revolution: From Regulatory Vacuum to Fintech's New Reality Check",
-    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2670&auto=format&fit=crop", // Fintech/Mobile Money Theme
+    image: "/3.jpeg", // Fintech/Mobile Money Theme
     fileName: "RBI's Digital Lending Revolution_ From Regulatory.docx",
-    author: "Unknown",
+   author: "Dev Agrawal",
     category: "Banking & Fintech",
     createdAt: "2025-05-08",
     updatedAt: "2025-05-08",
@@ -314,12 +208,12 @@ export const blogs = [
   },
 
   {
-    id: 4,
+    id: 3,
     slug: "fo-money-heist-preopening",
     title: "The Professor’s New Playbook: NSE’s PreOpening for F&O",
-    image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=2670&auto=format&fit=crop", // Stock Exchange/Market Theme
+    image: "/4.jpeg", // Stock Exchange/Market Theme
     fileName: "F&O AND MONEY HEIST (1).docx",
-    author: "Unknown",
+    author: "Dev Agrawal",
     category: "Derivatives & Market Microstructure",
     createdAt: "2025-05-29",
     updatedAt: "2025-05-29",
@@ -364,12 +258,12 @@ export const blogs = [
   },
 
   {
-    id: 5,
+    id: 4,
     slug: "workplace-safety-maternity-disclosures",
     title: "Profits and Silence: Disclosing Workplace Safety & Maternity Benefits",
-    image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=2669&auto=format&fit=crop", // Corporate/Professional Theme
+    image: "/5.jpeg", // Corporate/Professional Theme
     fileName: "disclose data regarding workplace safety and maternity benefits (1).docx",
-    author: "Unknown",
+    author: "Dev Agrawal",
     category: "Corporate Governance & Labour",
     createdAt: "2025-07-14",
     updatedAt: "2025-07-14",
@@ -418,7 +312,326 @@ export const blogs = [
         <li><a href="https://www.nishithdesai.com/fileadmin/user_upload/Html/Hotline/Yes_Governance_Matters_Jul1825-M.html" target="_blank">Nishith Desai Associates: Governance Matters</a></li>
       </ul>
     `
-  }
+  },
+  {
+    id: 5,
+    slug: "sebi-rpt-homelander-shift",
+    title: "A Calibrated Shift in SEBI’s Related-Party Transaction Regime—Explained Through The Boys",
+    image: "/6.jpeg", // Placeholder for new image
+    fileName: "A Calibrated Shift in SEBI.docx",
+    author: "Dev Agrawal",
+    category: "Corporate Governance",
+    createdAt: "2025-08-06",
+    updatedAt: "2025-08-06",
+    tags: [
+      "SEBI",
+      "Related Party Transactions",
+      "Corporate Governance",
+      "The Boys",
+      "Compliance",
+      "Audit Committee"
+    ],
+    content: `
+      <p><strong>A Calibrated Shift in SEBI’s Related-Party Transaction Regime—Explained Through The Boys</strong></p>
+
+      <p>The Securities and Exchange Board of India (SEBI) has always treated related-party transactions (RPTs) with suspicion, and for good reason. When a listed company buys goods from a promoter-controlled subsidiary or lends money to a director’s private vehicle, the line between legitimate commerce and self-dealing blurs. It is precisely this fear of "tunnelling"—wealth slipping out of the corporate perimeter into private pockets—that animated SEBI’s draconian 2015 regulations.</p>
+
+      <p>However, in August 2025, SEBI sounded a note of pragmatism. A new consultation paper proposes to relax blanket scrutiny, moving away from "ticking boxes" toward a risk-based judgment approach.</p>
+
+      <h2>Enter Homelander: A Pop-Culture Lens on Regulatory Overkill</h2>
+      <p>Why this reversal after a decade of tightening? A pop-culture analogy, borrowed from <em>The Boys</em>, clarifies the logic.</p>
+      
+      <p>In that universe, <strong>Homelander</strong> is all-powerful and invincible, summoned when humanity faces existential danger. However, calling him to mediate a neighborhood parking dispute would squander his capacity and dull his edge. SEBI’s older regime effectively summoned Homelander—shareholder votes, public filings, press commentary—for every routine intra-group recharge.</p>
+
+      <p>The proposed 2025 regime prefers to keep Homelander in reserve, ready to strike only when a transaction’s scale threatens to distort earnings, reroute cash, or tilt control.</p>
+
+      <h2>The August 2025 Consultation: A Pragmatic Re-Focus</h2>
+      <p>The document does not abandon the principle of sunlight; it merely re-positions the spotlight:</p>
+      <ul>
+        <li><strong>Small Deal Exemption:</strong> Transactions smaller than ₹150 million would vanish from half-yearly disclosure annexures.</li>
+        <li><strong>High Value Thresholds:</strong> Companies with revenue >₹300 billion need shareholder approval only when a deal crosses ₹25 billion.</li>
+        <li><strong>Hard Stop:</strong> An absolute hard stop of ₹50 billion captures outliers regardless of company size.</li>
+      </ul>
+
+      <h2>Inside the Boardroom: From Arithmetic to Judgment</h2>
+      <p>The change reshapes life inside Indian boardrooms. Audit committees, liberated from marathon sessions regarding micro-deals, must now focus on thematic risk. They will demand dashboards mapping cumulative exposure and heat-maps highlighting pricing outliers.</p>
+      
+      <p>Independent directors have fewer excuses now. They must probe qualitative red flags—opaque cost-allocation keys and perpetual roll-overs of inter-corporate deposits—because mere compliance with arithmetic thresholds no longer suffices.</p>
+
+      <h2>The Aggregation Doctrine: Policing Deal-Splitting</h2>
+      <p>To prevent companies from slicing a large deal into smaller bites to evade detection, SEBI has emphasized the <strong>Aggregation Doctrine</strong>. A services framework for ₹24.8 billion, split into quarterly work orders below ₹150 million, will now meet with enforcement.</p>
+
+      <h2>Interlocking Regimes: No Universal Hall-Pass</h2>
+      <p>Smart boards know that relief under LODR is not a universal hall-pass. Other regulators remain vigilant:</p>
+      <ul>
+        <li><strong>Tax Authorities:</strong> Transfer-pricing officers can still adjust income under Rule 10D.</li>
+        <li><strong>IBC:</strong> Resolution professionals can claw back undervalued transactions.</li>
+        <li><strong>Competition Commission:</strong> Turnover tests still demand merger filings for restructuring.</li>
+      </ul>
+
+      <h2>Conclusion: Keeping Homelander Fresh</h2>
+      <p>SEBI has learned that oversight must be fearsome but focused. By keeping "Homelander" out of neighborhood quarrels, the regulator ensures that when real villains appear, the enforcement mechanism arrives fresh and unstoppable. If boards internalize this wisdom, the new regime could mark a maturing of Indian corporate governance—a passage from childhood rules to adult responsibilities.</p>
+
+      <hr>
+      <h3>References</h3>
+      <ul style="font-size: 0.9rem; word-break: break-all;">
+        <li><a href="https://www.sebi.gov.in/reports-and-statistics/reports/feb-2025/consultation-paper-on-aspects-relating-to-secretarial-compliance-report-appointment-of-auditors-and-related-party-transactions-of-a-listed-entity_91740.html" target="_blank">SEBI Consultation Paper (Feb/Aug 2025)</a></li>
+        <li><a href="https://www.reuters.com/sustainability/boards-policy-regulation/indias-markets-regulator-proposes-relax-limits-approval-disclosure-related-party-2025-08-04/" target="_blank">Reuters: SEBI Proposes to Relax Limits</a></li>
+        <li><a href="https://www.moneycontrol.com/news/business/markets/sebi-proposes-to-relax-limits-for-approval-disclosure-of-related-party-transactions-13385939.html" target="_blank">Moneycontrol: SEBI RPT Analysis</a></li>
+      </ul>
+    `
+  },
+  {
+    id: 6,
+    slug: "fpi-love-story-ddlj",
+    title: "The FPI Love Story: Dilwale Portfolio Le Jayenge",
+    image: "/7.jpg", // Placeholder for new image
+    fileName: "THE FPI LOVE STORY.pdf",
+    author: "Dev Agrawal",
+    category: "Foreign Investment & Regulations",
+    createdAt: "2025-09-15",
+    updatedAt: "2025-09-15",
+    tags: [
+      "FPI",
+      "SEBI",
+      "RBI",
+      "Dilwale Dulhania Le Jayenge",
+      "Bonds",
+      "Regulatory Reforms"
+    ],
+    content: `
+      <p><strong>The FPI Love Story: Dilwale Portfolio Le Jayenge</strong></p>
+
+      <p>Foreign Portfolio Investors (FPIs) have always played the part of the charming overseas suitor in India's financial love story. Picture them as Shah Rukh Khan in <em>Dilwale Dulhania Le Jayenge</em>—NRI charisma intact, suitcases packed, this time not with love letters but with crisp foreign currency.</p>
+
+      <p>Standing at the gate of the Mumbai airport, our hero sees two elders waiting:</p>
+      <ul>
+        <li><strong>SEBI:</strong> The over-protective father channeling Amrish Puri, folding his arms and growling, <em>"Yeh shaadi nahi ho sakti!"</em></li>
+        <li><strong>RBI:</strong> The genial uncle in full Anupam Kher mode, slipping the hero a plate of laddoos and winking, <em>"Jaa Simran, jee le apni zindagi."</em></li>
+      </ul>
+
+      <p>That tension between caution and encouragement frames every reform to India's FPI regime. 2025 delivered three plot-shaping amendments that explain why the hero still boards the train back to India—only now with fewer bureaucratic speed-breakers.</p>
+
+      <h2>Amendment 1: "Mujhe Sirf Mandir Jana Hai" (August 2025)</h2>
+      <p>In August 2025, SEBI introduced a relaxation for <strong>Government-Securities-only FPIs</strong>. Until this year, investing in low-risk T-bills required the same exhaustive documentation as complex derivatives. SEBI finally conceded that sovereign-debt specialists posed far less market risk.</p>
+      
+      <p><strong>The "IGB-FPI" Category:</strong> Entities investing exclusively in Indian Government Bonds may now skip investor-group disclosures and enjoy longer KYC cycles.</p>
+
+      <blockquote>
+        <strong>Bollywood Translation:</strong><br>
+        Hero: "Uncle, mujhe sirf mandir jana hai (I just want to visit the temple/G-Secs)."<br>
+        SEBI (Amrish Puri): "Theek hai. If it's only the mandir, I won't demand your entire family tree."
+      </blockquote>
+
+      <h2>Amendment 2: "Dance As Long As You Want" (May 2025)</h2>
+      <p>Historically, FPIs faced speed limits in the corporate bond market: short-term investment caps and issuer concentration limits. These rules prevented hot-money gyrations but locked investors into sub-optimal positions.</p>
+
+      <p>RBI's circular of May 7, 2025, tore those pages out, abolishing both the short-term investment cap and the issuer concentration limit. This aligns India's debt rules with global best practices and deepens secondary-market liquidity.</p>
+
+      <blockquote>
+        <strong>Bollywood Translation:</strong><br>
+        Before: "Beta, you can only dance with this one cousin, and only for 30 minutes."<br>
+        Now (RBI Uncle): "Arre yaar, let him dance with everyone—till the DJ goes home."
+      </blockquote>
+
+      <h2>Amendment 3: "Aath Baje Ghar Aajana" (The Curfew)</h2>
+      <p>Even liberalisation has a curfew. For FY 2025-26, aggregate ceilings remain intact:</p>
+      <ul>
+        <li>6% of outstanding General Government securities</li>
+        <li>15% for State Development Loans</li>
+        <li>15% for corporate bonds</li>
+      </ul>
+      
+      <p>This brings us back to Papa SEBI tapping his wristwatch. The message is clear: <em>"Enjoy your newfound freedom, but remember whose roof you dance under."</em></p>
+
+      <h2>Conclusion: The Train is Hurtling Forward</h2>
+      <p>Taken together, the 2025 trilogy illustrates a deliberate choreography between risk containment and market depth. SEBI's sovereign-debt carve-out reduces friction where systemic risk is minimal, while RBI's removal of bond-portfolio shackles acknowledges that sophisticated investors require agility.</p>
+
+      <p>The Bollywood metaphor is more than theatre: the hero's dollars are essential dowry for India's developmental aspirations. Shah Rukh has not only secured Simran's hand; he has won grudging respect from Papa and a triumphant nod from the ever-supportive uncle.</p>
+
+      <hr>
+      <h3>References</h3>
+      <ul style="font-size: 0.9rem; word-break: break-all;">
+        <li><a href="https://www.sebi.gov.in/legal/regulations/aug-2025/securities-and-exchange-board-of-india-foreign-portfolio-investors-regulations-2019-last-amended-on-august-12-2025-_96167.html" target="_blank">SEBI FPI Regulations (Aug 2025)</a></li>
+        <li><a href="https://www.sebi.gov.in/legal/circulars/sep-2025/ease-of-regulatory-compliances-for-fpis-investing-only-in-government-securities_96549.html" target="_blank">SEBI Circular: Ease of Compliance for G-Sec FPIs</a></li>
+        <li><a href="https://vinodkothari.com/2025/05/rbi-removes-short-term-investment-limits-and-concentration-limits-in-case-of-fpi/" target="_blank">Vinod Kothari: RBI Removes Short-Term Limits</a></li>
+      </ul>
+    `
+  },
+  {
+  id: 7,
+  slug: "odr-jolly-llb-telegram",
+  title: "ADR + Jolly LLB + Telegram = ODR: The Digital Shift in Indian Justice",
+  image: "/8.jpeg", // Placeholder for new image
+  fileName: "ADR + Jolly LLB + Telegram = ODR.docx",
+  author: "Dev Agrawal",
+  category: "Legal Tech & Judiciary",
+  createdAt: "2025-10-10",
+  updatedAt: "2025-10-10",
+  tags: [
+    "ODR",
+    "Jolly LLB",
+    "Mediation Act 2023",
+    "Legal Tech",
+    "Sama",
+    "Presolv360",
+    "Access to Justice"
+  ],
+  content: `
+    <p><strong>ADR + Jolly LLB + Telegram = ODR: The Digital Shift in Indian Justice</strong></p>
+
+    <p>The 2013 film <em>Jolly LLB</em> embedded itself in the public imagination by portraying a grimy, paperwork-laden Indian courtroom where ceiling fans creaked and advocates shouted themselves hoarse. A decade later, the setting has shifted. The quarrel that once filled the well of the court can now unfold inside a muted Telegram channel where arguments are restricted to crisp text.</p>
+
+    <p>This raises an urgent question: can Online Dispute Resolution (ODR) truly replace the physical courtroom without eroding substantive justice?.</p>
+
+    
+    <h2>The Pandemic Pivot</h2>
+    <p>COVID-19 forced the Indian judiciary to adopt technology at an unprecedented pace. Between March 2020 and January 2025, courts conducted roughly 34.9 million virtual hearings. Lok Adalats turned to phone calls and Zoom rooms, disposing of 12.8 million matters in the last financial year alone.</p>
+
+    <h2>Private Platforms Take Centre Stage</h2>
+    <p>Start-ups like Presolv360, Sama, and Jupitice now market "justice-as-a-service".</p>
+    <ul>
+      <li><strong>Presolv360:</strong> Integrates arbitration clauses into contracts, popular with NBFCs.</li>
+      <li><strong>Sama:</strong> Hosts a panel of 3,000 mediators who resolved disputes from living rooms during lockdowns.</li>
+      <li><strong>Jupitice:</strong> Brands itself a "justice operating system" using blockchain for evidence.</li>
+    </ul>
+
+    
+    <h2>When Messaging Apps Become Procedure</h2>
+    <p>The Delhi High Court has held that a string of WhatsApp messages can constitute a valid arbitration agreement. Litigants now attach PDFs instead of filing stitched paper-books. However, this informality raises profound questions about authenticity and chain-of-custody that neither law nor platform policy fully answers.</p>
+
+    <h2>The Legal Infrastructure</h2>
+    <p>India is legally prepared. The <strong>Mediation Act 2023</strong> explicitly recognizes online mediation conducted through video or chat. It establishes a Mediation Council of India to accredit providers. However, notable silences remain: there are no specific encryption standards or data-localisation mandates for these platforms.</p>
+
+    <h2>The Digital Divide: Promises and Perils</h2>
+    <p>Studies show digital mediation can slash resolution times by 60-80% and reduce costs by 70%. Yet, the digital divide is stark. Rural broadband penetration hovers at 8%, and computer literacy in countryside households is barely 24%. Without subsidized access, ODR threatens to replicate the urban bias of the formal legal system.</p>
+
+    <h2>International Comparisons</h2>
+    <p>Comparative experience offers models to emulate:</p>
+    <ul>
+      <li><strong>Singapore:</strong> The Community Justice and Tribunals System processes small claims online; it is trusted because it is government-owned.</li>
+      <li><strong>EU:</strong> A centralized ODR portal failed due to low awareness and will be discontinued in 2025.</li>
+      <li><strong>UAE:</strong> Dubai's Wasata platform makes mediation mandatory before filing lawsuits, boasting a 60% success rate.</li>
+    </ul>
+
+    
+    <h2>Conclusion: A Parallel Architecture</h2>
+    <p>ODR should be understood not as a cheap substitute but as a parallel architecture of justice. The next "Jolly" might draft his petition on a smartphone, but he should still have the right to argue before a living judge. In preserving that choice, India can harness technology without surrendering the civic drama that keeps justice visible.</p>
+
+    <hr>
+    <h3>References</h3>
+    <ul style="font-size: 0.9rem; word-break: break-all;">
+      <li><a href="https://doj.gov.in/video-conferencing" target="_blank">Department of Justice: VC Statistics (Jan 2025)</a></li>
+      <li><a href="https://egazette.nic.in/WriteReadData/2023/248071.pdf" target="_blank">Mediation Act 2023</a></li>
+      <li><a href="https://niti.gov.in/sites/default/files/2023-03/Designing-The-Future-of-Dispute-Resolution-The-ODR-Policy-Plan-for-India.pdf" target="_blank">NITI Aayog: ODR Policy Plan (2023)</a></li>
+    </ul>
+  `
+},
+  {
+    id: 8,
+    slug: "sebi-aiml-guidelines",
+    title: "SEBI's AI/ML Guidelines",
+    image: "/1.jpeg", // AI & Technology Theme
+    fileName: "SEBI's consultation paper.docx",
+    author: "Dev Agrawal",
+    category: "Securities Regulation",
+    createdAt: "2025-06-20",
+    tags: [
+      "SEBI",
+      "AI",
+      "Machine Learning",
+      "Securities Market",
+      "Consultation Paper",
+      "Governance",
+      "Investor Protection"
+    ],
+    content: `
+      <p><strong>SEBI's AI/ML Guidelines</strong></p>
+      
+      <p>Picture this: It's 7 PM at the usual chai tapri near Law College, where future advocates gather after Constitutional Law lectures. The discussion today isn't about the latest Supreme Court judgment or tomorrow's Civil Procedure assignment—it's about SEBI's groundbreaking consultation paper on <strong>AI/ML [“Artificial Intelligence/Machine Learning”]</strong> guidelines that dropped on June 20, 2025, and has the entire securities market buzzing like a group chat after someone drops major tea.</p>
+
+      <p><em>The modern building of the Securities and Exchange Board of India (SEBI), the financial regulator for the Indian securities market.</em></p>
+
+      <h2>The Plot Twist That Even Rohit Shetty Couldn't Script</h2>
+      
+      <p>Just when everyone thought 2025 would be all about Salman Khan's "Sikandar" dominating box office collections and Alia Bhatt's "Alpha" breaking the spy universe ceiling, SEBI decided to steal the spotlight with something even more dramatic—a comprehensive regulatory framework for artificial intelligence in securities markets.</p>
+      
+      <p>Think of it this way: if the securities market were a Bollywood movie, AI/ML applications have been the supporting actors quietly doing all the heavy lifting—from KYC processing to algorithmic trading, risk management to customer support chatbots. But now, SEBI wants to give them main character treatment with proper regulatory recognition and oversight.</p>
+      
+      <p>The consultation paper, seeking public comments until July 11, 2025, represents what legal scholars might call a "regulatory evolution"—moving from ad-hoc AI usage to structured governance. It's like the difference between random TikTok videos and a well-scripted Netflix series.</p>
+
+      <h2>The Five-Point Constitutional Framework: More Organized Than the Supreme Court's Nine-Judge Bench</h2>
+
+      <p>SEBI's working group has crafted what can only be described as the "Panchayat of AI Governance"—five fundamental principles that would make even ancient Indian legal traditions proud:</p>
+
+      <ol>
+        <li>
+          <strong>Model Governance: The "Senior Counsel" Principle</strong><br>
+          Just like how every legal case needs a senior advocate who takes ultimate responsibility, SEBI mandates that market participants appoint senior management with technical expertise to oversee AI/ML models. This isn't some intern monitoring algorithms while scrolling through Instagram Reels—this requires skilled internal teams with the legal equivalent of domain expertise. The governance framework includes fallback plans, audit trails, and exception handling—essentially creating a legal safety net more comprehensive than the provisions in the Companies Act, 2013.
+        </li>
+        <br>
+        <li>
+          <strong>Investor Protection & Disclosure: The "Right to Information" for AI</strong><br>
+          Here's where it gets interesting for us law students. SEBI has essentially created an AI-specific disclosure regime that rivals the transparency requirements under securities law. If AI tools directly impact clients—whether through algorithmic trading, portfolio management, or advisory services—firms must disclose everything in plain, client-friendly language. This includes model accuracy, risks, limitations, and fees—basically, the AI equivalent of a prospectus under the Companies Act.
+        </li>
+        <br>
+        <li>
+          <strong>Testing Framework: More Rigorous Than UPSC Mains</strong><br>
+          The testing requirements are so comprehensive, they make Sikandar's action sequences look simple. SEBI demands segregated testing environments, shadow testing, and continuous monitoring. Plus, firms must retain data logs and documentation for a minimum of five years—that's longer than most law degrees!
+        </li>
+        <br>
+        <li>
+          <strong>Fairness & Bias: The "Article 14 of AI"</strong><br>
+          Drawing inspiration from constitutional equality principles, SEBI requires non-discriminatory outcomes and diverse datasets. The regulator essentially wants AI models to follow the "reasonable classification test" from administrative law—any algorithmic decisions must be fair, reasonable, and non-arbitrary.
+        </li>
+        <br>
+        <li>
+          <strong>Data Privacy & Cyber Security: The "Fundamental Right to Digital Privacy"</strong><br>
+          Post the Justice K.S. Puttaswamy judgment, privacy has constitutional sanctity. SEBI's requirements for data security policies, cybersecurity protocols, and immediate breach reporting align with this judicial evolution. Firms must maintain privacy law compliance with the rigor expected in landmark Supreme Court cases.
+        </li>
+      </ol>
+
+      <h2>The "Regulatory Lite" Innovation: SEBI's Version of Alternative Dispute Resolution</h2>
+      
+      <p>Here's the masterstroke that shows SEBI's legal sophistication: they've proposed a "regulatory lite" framework for AI usage that doesn't directly impact customers. It's like creating summary procedures in civil litigation—streamlined for lower-risk scenarios while maintaining full procedural rigor for high-stakes situations.</p>
+
+      <h2>Current Market Applications: The Supporting Cast Getting Star Treatment</h2>
+      <p>The consultation paper reveals that exchanges, brokers, and mutual funds are already using AI extensively:</p>
+      <ul>
+        <li><strong>Stock Exchanges:</strong> Advanced cybersecurity, market surveillance, social media analytics, and member support chatbots.</li>
+        <li><strong>Brokers:</strong> KYC processing, product recommendations, order execution, and anti-money laundering.</li>
+        <li><strong>Mutual Funds:</strong> Customer segmentation, support services, and cybersecurity tools.</li>
+      </ul>
+
+      <h2>Global Context & Implementation</h2>
+      <p>SEBI's approach follows international best practices from IOSCO, FINRA, MAS, and other global regulators. The framework aligns with OECD AI principles and draws from the updated IOSCO documentation on AI in capital markets.</p>
+
+      <h3>Implementation Timeline: The "Limitation Period" for Compliance</h3>
+      <ul>
+        <li><strong>Model Governance:</strong> Continuous compliance requirement</li>
+        <li><strong>Disclosure:</strong> Before deployment of client-impacting AI</li>
+        <li><strong>Testing:</strong> Pre-deployment and ongoing monitoring</li>
+        <li><strong>Fairness:</strong> During development and continuous auditing</li>
+        <li><strong>Privacy:</strong> Real-time compliance obligation</li>
+      </ul>
+
+      <h2>Conclusion: The Chai Stall Consensus</h2>
+      <p>As the evening chai session winds down and law students head back to their Constitutional Law textbooks, the consensus is clear: SEBI's AI/ML consultation paper represents regulatory statesmanship of the highest order. The five-principle framework balances innovation with protection, efficiency with accountability, and progress with prudence.</p>
+      
+      <p>So mark your calendars: <strong>July 11, 2025</strong>, isn't just another deadline—it's the closing date for public comments on what might become the most significant piece of financial technology regulation in Indian legal history.</p>
+      
+      <p><em>"Abhi picture baaki hai, dost"</em> – and this regulatory drama is just getting started.</p>
+
+      <hr>
+      <h3>References & Further Reading</h3>
+      <ul style="font-size: 0.9rem; word-break: break-all;">
+        <li><a href="https://www.lakshmisri.com/insights/articles/sebi-s-consultation-paper-and-the-winds-of-ai-governance/" target="_blank">Lakshmisri: SEBI's Consultation Paper and AI Governance</a></li>
+        <li><a href="https://www.scconline.com/blog/post/2025/02/11/sebi-introduces-concept-of-ai/" target="_blank">SCC Online: SEBI Introduces Concept of AI</a></li>
+        <li><a href="https://www.sebi.gov.in/reports-and-statistics/reports/jun-2025/consultation-paper-on-guidelines-for-responsible-usage-of-ai-ml-in-indian-securities-markets_94687.html" target="_blank">SEBI Official Consultation Paper (June 2025)</a></li>
+      </ul>
+    `
+  },
+  
 ];
 
 export default blogs;

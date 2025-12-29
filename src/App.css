@@ -70,6 +70,7 @@ body {
   color: #e5e7eb;
   margin-bottom: 1.25rem;
   line-height: 1.75;
+  text-align: justify;
 }
 
 .prose ul {
@@ -92,6 +93,53 @@ body {
 .prose em {
   font-style: italic;
   color: #d1d5db;
+}
+
+/* Blog Detail Page - Dark Text on Light Background */
+.prose-stone h1,
+.prose-stone h2,
+.prose-stone h3,
+.prose-stone h4,
+.prose-stone h5,
+.prose-stone h6 {
+  color: #000000 !important;
+  font-weight: 700;
+}
+
+.prose-stone p {
+  color: #1a1a1a !important;
+  line-height: 1.8;
+  text-align: justify;
+}
+
+.prose-stone ul,
+.prose-stone ol {
+  color: #1a1a1a !important;
+}
+
+.prose-stone li {
+  color: #1a1a1a !important;
+  line-height: 1.8;
+}
+
+.prose-stone strong {
+  color: #000000 !important;
+  font-weight: 700;
+}
+
+.prose-stone em {
+  color: #2c2c2c !important;
+  font-style: italic;
+}
+
+.prose-stone a {
+  color: #1a1a1a !important;
+  text-decoration: underline;
+}
+
+.prose-stone blockquote {
+  color: #2c2c2c !important;
+  border-left-color: #4a4a4a;
 }
 
 /* Line clamp utilities */

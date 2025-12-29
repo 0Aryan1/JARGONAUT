@@ -23,12 +23,12 @@ const BlogCardLarge = ({ blog }) => {
       <div className="p-6 flex flex-col flex-grow">
         {/* Date and Author */}
         <div className="flex items-center gap-3 text-sm text-white/60 mb-3">
-          <span>{new Date(blog.date).toLocaleDateString('en-US', { 
+          {/* <span>{new Date(blog.date).toLocaleDateString('en-US', { 
             year: 'numeric', 
             month: 'short', 
             day: 'numeric' 
-          })}</span>
-          <span>•</span>
+          })}</span> */}
+          {/* <span>•</span> */}
           <span>{blog.author}</span>
         </div>
         

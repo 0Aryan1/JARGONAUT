@@ -2,8 +2,9 @@
 import React from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
-import BlogCard from '../BlogCard';
+// import BlogCard from '../BlogCard';
 import { blogs } from '../../data/blogs';
+import BlogCardLarge from '../BlogCardLarge';
 
 export default function Carousel() {
   // Get only the first 3 blogs
@@ -12,7 +13,7 @@ export default function Carousel() {
   // Create carousel items from blog cards
   const items = featuredBlogs.map((blog) => (
     <div key={blog.id} className="px-4">
-      <BlogCard blog={blog} />
+      <BlogCardLarge blog={blog} />
     </div>
   ));
 
@@ -27,7 +28,7 @@ export default function Carousel() {
           1024: { items: 3 }    // desktop: 3 cards (33% width each)
         }}
         infinite
-        disableButtonsControls={false}
+        disableButtonsControls={true}
         autoPlay={true}
         autoPlayInterval={3000}
         autoPlayStrategy="default"
