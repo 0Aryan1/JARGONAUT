@@ -325,8 +325,8 @@ class App {
       textColor = '#ffffff',
       borderRadius = 0,
       font = 'bold 30px Figtree',
-      scrollSpeed = 2,
-      scrollEase = 0.05,
+      scrollSpeed = 4,
+      scrollEase = 0.12,
       onCardClick
     } = {}
   ) {
@@ -415,7 +415,7 @@ class App {
   onTouchMove(e) {
     if (!this.isDown) return;
     const x = e.touches ? e.touches[0].clientX : e.clientX;
-    const distance = (this.start - x) * (this.scrollSpeed * 0.025);
+    const distance = (this.start - x) * (this.scrollSpeed * 0.08);
     
     // If moved more than 5 pixels, consider it a drag
     if (Math.abs(x - this.dragStartX) > 5) {
@@ -439,7 +439,7 @@ class App {
   }
   onWheel(e) {
     const delta = e.deltaY || e.wheelDelta || e.detail;
-    this.scroll.target += (delta > 0 ? this.scrollSpeed : -this.scrollSpeed) * 0.2;
+    this.scroll.target += (delta > 0 ? this.scrollSpeed : -this.scrollSpeed) * 0.5;
     this.onCheckDebounce();
   }
   onCheck() {
