@@ -136,7 +136,7 @@ function About() {
 
             {/* About/Mission Text - RIGHT SIDE */}
             <div className="space-y-6">
-              <h3 className="text-3xl font-bold text-white">Founder Note</h3>
+              <h3 className="text-3xl font-bold text-white">Founder's Note</h3>
               <p className="text-white/80 leading-relaxed text-justify">
                 We believe that corporate law doesn't have to be boring or intimidating. At The Jargonaut, 
                 we break down complex legal concepts using references from movies, TV shows, and pop culture 
