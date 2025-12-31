@@ -47,7 +47,7 @@ function About() {
               >
                 <span className="text-white text-xl">←</span>
                 <img 
-                  src="/wlogo.png" 
+                  src="/wlogo.webp" 
                   alt="The Jargonaut Logo" 
                   className="h-12 md:h-14 lg:h-16 w-auto object-contain"
                 />
@@ -125,8 +125,8 @@ function About() {
                 handle="aryanagrawal"
                 status="Writing Amazing Content"
                 contactText="Get in Touch"
-                avatarUrl="/dev.jpeg"
-                miniAvatarUrl="/dev.jpeg"
+                avatarUrl="/dev.webp"
+                miniAvatarUrl="/dev.webp"
                 showUserInfo={true}
                 enableTilt={true}
                 enableMobileTilt={false}
@@ -162,8 +162,8 @@ function About() {
                 handle="aryanagrawal"
                 status="Writing Amazing Content"
                 contactText="Get in Touch"
-                avatarUrl="/aryan.jpeg"
-                miniAvatarUrl="/aryan.jpeg"
+                avatarUrl="/aryan.webp"
+                miniAvatarUrl="/aryan.webp"
                 showUserInfo={true}
                 enableTilt={true}
                 enableMobileTilt={false}

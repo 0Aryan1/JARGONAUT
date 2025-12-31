@@ -62,7 +62,7 @@ const BlogDetail = () => {
               >
                 <span className="text-[#2c2c2c] text-xl">←</span>
                 <img 
-                  src="/logo.png" 
+                  src="/wlogo.webp" 
                   alt="The Jargonaut Logo" 
                   className="h-14 md:h-20 lg:h-24 w-auto object-contain"
                 />

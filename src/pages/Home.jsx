@@ -44,7 +44,7 @@ function Home() {
                   className="relative hover:scale-105 transition-transform duration-200 inline-block"
                 >
                   <img 
-                    src="/wlogo.png" 
+                    src="/wlogo.webp" 
                     alt="The Jargonaut Logo" 
                     className="h-12 md:h-14 lg:h-16 w-auto object-contain"
                   />
@@ -166,7 +166,7 @@ function Home() {
                 muted
                 playsInline
                 loading="lazy"
-                poster="/hanbg.jpg"
+                poster="/hanbg.webp"
               >
                 <source src="/hanketsu.MP4" type="video/mp4" />
               </video>

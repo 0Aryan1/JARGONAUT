@@ -393,11 +393,11 @@ class App {
   }
   createMedias(items, bend = 1, textColor, borderRadius, font) {
     const defaultItems = [
-      { image: '/han1.jpg', text: 'Hanketsu 1', episodeId: 1 },
-      { image: '/han2.jpg', text: 'Hanketsu 2', episodeId: 2 },
-      { image: '/han3.jpg', text: 'Hanketsu 3', episodeId: 3 },
-      { image: '/han4.jpg', text: 'Hanketsu 4', episodeId: 4 },
-      { image: '/han5.jpg', text: 'Hanketsu 5', episodeId: 5 }
+      { image: '/han1.webp', text: 'Hanketsu 1', episodeId: 1 },
+      { image: '/han2.webp', text: 'Hanketsu 2', episodeId: 2 },
+      { image: '/han3.webp', text: 'Hanketsu 3', episodeId: 3 },
+      { image: '/han4.webp', text: 'Hanketsu 4', episodeId: 4 },
+      { image: '/han5.webp', text: 'Hanketsu 5', episodeId: 5 }
     ];
     const galleryItems = items && items.length ? items : defaultItems;
     this.mediasImages = galleryItems.concat(galleryItems);

@@ -5,7 +5,7 @@ export const blogs = [
     id: 1,
     slug: "sebi-algorithmic-trading-framework",
     title: "SEBI's Algorithmic Trading Framework: When Retail Meets Regulation",
-    image: "/2.jpeg", // Trading Charts Theme
+    image: "/2.webp", // Trading Charts Theme
     fileName: "SEBI's Algorithmic Trading Framework.docx",
     author: "Dev Agrawal",
     category: "Securities Regulation",
@@ -113,7 +113,7 @@ export const blogs = [
     id: 2,
     slug: "rbi-digital-lending-revolution",
     title: "RBI's Digital Lending Revolution: From Regulatory Vacuum to Fintech's New Reality Check",
-    image: "/3.jpeg", // Fintech/Mobile Money Theme
+    image: "/3.webp", // Fintech/Mobile Money Theme
     fileName: "RBI's Digital Lending Revolution_ From Regulatory.docx",
    author: "Dev Agrawal",
     category: "Banking & Fintech",
@@ -211,7 +211,7 @@ export const blogs = [
     id: 3,
     slug: "fo-money-heist-preopening",
     title: "The Professor’s New Playbook: NSE’s PreOpening for F&O",
-    image: "/4.jpeg", // Stock Exchange/Market Theme
+    image: "/4.webp", // Stock Exchange/Market Theme
     fileName: "F&O AND MONEY HEIST (1).docx",
     author: "Dev Agrawal",
     category: "Derivatives & Market Microstructure",
@@ -261,7 +261,7 @@ export const blogs = [
     id: 4,
     slug: "workplace-safety-maternity-disclosures",
     title: "Profits and Silence: Disclosing Workplace Safety & Maternity Benefits",
-    image: "/5.jpeg", // Corporate/Professional Theme
+    image: "/5.webp", // Corporate/Professional Theme
     fileName: "disclose data regarding workplace safety and maternity benefits (1).docx",
     author: "Dev Agrawal",
     category: "Corporate Governance & Labour",
@@ -317,7 +317,7 @@ export const blogs = [
     id: 5,
     slug: "sebi-rpt-homelander-shift",
     title: "A Calibrated Shift in SEBI’s Related-Party Transaction Regime—Explained Through The Boys",
-    image: "/6.jpeg", // Placeholder for new image
+    image: "/6.webp", // Placeholder for new image
     fileName: "A Calibrated Shift in SEBI.docx",
     author: "Dev Agrawal",
     category: "Corporate Governance",
@@ -385,7 +385,7 @@ export const blogs = [
     id: 6,
     slug: "fpi-love-story-ddlj",
     title: "The FPI Love Story: Dilwale Portfolio Le Jayenge",
-    image: "/7.jpg", // Placeholder for new image
+    image: "/7.webp", // Placeholder for new image
     fileName: "THE FPI LOVE STORY.pdf",
     author: "Dev Agrawal",
     category: "Foreign Investment & Regulations",
@@ -462,7 +462,7 @@ export const blogs = [
   id: 7,
   slug: "odr-jolly-llb-telegram",
   title: "ADR + Jolly LLB + Telegram = ODR: The Digital Shift in Indian Justice",
-  image: "/8.jpeg", // Placeholder for new image
+  image: "/8.webp", // Placeholder for new image
   fileName: "ADR + Jolly LLB + Telegram = ODR.docx",
   author: "Dev Agrawal",
   category: "Legal Tech & Judiciary",
@@ -531,7 +531,7 @@ export const blogs = [
     id: 8,
     slug: "sebi-aiml-guidelines",
     title: "SEBI's AI/ML Guidelines",
-    image: "/1.jpeg", // AI & Technology Theme
+    image: "/1.webp", // AI & Technology Theme
     fileName: "SEBI's consultation paper.docx",
     author: "Dev Agrawal",
     category: "Securities Regulation",
