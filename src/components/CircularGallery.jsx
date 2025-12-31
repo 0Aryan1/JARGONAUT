@@ -134,7 +134,11 @@ class Media {
   }
   createShader() {
     const texture = new Texture(this.gl, {
-      generateMipmaps: true
+      generateMipmaps: false, // Disable mipmaps for better mobile compatibility
+      minFilter: this.gl.LINEAR,
+      magFilter: this.gl.LINEAR,
+      wrapS: this.gl.CLAMP_TO_EDGE,
+      wrapT: this.gl.CLAMP_TO_EDGE
     });
     this.program = new Program(this.gl, {
       depthTest: false,
@@ -199,11 +203,19 @@ class Media {
       transparent: true
     });
     const img = new Image();
-    img.crossOrigin = 'anonymous';
+    // Don't set crossOrigin for same-origin images (fixes mobile CORS issues)
+    // img.crossOrigin = 'anonymous';
     img.src = this.image;
     img.onload = () => {
-      texture.image = img;
-      this.program.uniforms.uImageSizes.value = [img.naturalWidth, img.naturalHeight];
+      try {
+        texture.image = img;
+        this.program.uniforms.uImageSizes.value = [img.naturalWidth, img.naturalHeight];
+      } catch (error) {
+        console.error('Error loading texture:', this.image, error);
+      }
+    };
+    img.onerror = (error) => {
+      console.error('Error loading image:', this.image, error);
     };
   }
   createMesh() {
@@ -351,12 +363,18 @@ class App {
     this.renderer = new Renderer({
       alpha: false,
       antialias: true,
+      // Limit DPR to 2 for mobile performance and compatibility
       dpr: Math.min(window.devicePixelRatio || 1, 2)
     });
     this.gl = this.renderer.gl;
     // Set background color to match website bg (#0a0b14)
     // Convert hex #0a0b14 to RGB normalized values (0-1)
     this.gl.clearColor(0.039, 0.043, 0.078, 1.0);
+    
+    // Enable texture support for mobile browsers
+    this.gl.pixelStorei(this.gl.UNPACK_FLIP_Y_WEBGL, true);
+    this.gl.pixelStorei(this.gl.UNPACK_PREMULTIPLY_ALPHA_WEBGL, false);
+    
     this.container.appendChild(this.gl.canvas);
   }
   createCamera() {
@@ -375,11 +393,11 @@ class App {
   }
   createMedias(items, bend = 1, textColor, borderRadius, font) {
     const defaultItems = [
-      { image: `/han1.jpg`, text: 'Hanketsu 1', episodeId: 1 },
-      { image: `/han2.jpg`, text: 'Hanketsu 2', episodeId: 2 },
-      { image: `/han3.jpg`, text: 'Hanketsu 3', episodeId: 3 },
-      { image: `/han4.jpg`, text: 'Hanketsu 4', episodeId: 4 },
-      { image: `/han5.jpg`, text: 'Hanketsu 5', episodeId: 5 }
+      { image: '/han1.jpg', text: 'Hanketsu 1', episodeId: 1 },
+      { image: '/han2.jpg', text: 'Hanketsu 2', episodeId: 2 },
+      { image: '/han3.jpg', text: 'Hanketsu 3', episodeId: 3 },
+      { image: '/han4.jpg', text: 'Hanketsu 4', episodeId: 4 },
+      { image: '/han5.jpg', text: 'Hanketsu 5', episodeId: 5 }
     ];
     const galleryItems = items && items.length ? items : defaultItems;
     this.mediasImages = galleryItems.concat(galleryItems);
