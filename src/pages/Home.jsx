@@ -1,11 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Carousel from '../components/carousel/Carousel';
-import BlogCardLarge from '../components/BlogCardLarge';
 import Footer from '../components/Footer';
-import Galaxy from '../components/Galaxy';
-import CircularGallery from '../components/CircularGallery';
 import { blogs } from '../data/blogs';
+
+// Lazy load heavy components
+const Carousel = lazy(() => import('../components/carousel/Carousel'));
+const BlogCardLarge = lazy(() => import('../components/BlogCardLarge'));
+const Galaxy = lazy(() => import('../components/Galaxy'));
+const CircularGallery = lazy(() => import('../components/CircularGallery'));
+
+// Simple loading placeholder
+const ComponentLoader = () => (
+  <div className="w-full h-full flex items-center justify-center">
+    <div className="animate-pulse text-white/50">Loading...</div>
+  </div>
+);
 
 function Home() {
   const navigate = useNavigate();
@@ -110,17 +119,19 @@ function Home() {
       <div className="relative h-screen overflow-hidden">
         {/* Galaxy Background */}
         <div className="absolute inset-0 w-full h-full z-10">
-          <Galaxy 
-            mouseRepulsion={true}
-            mouseInteraction={true}
-            density={1.5}
-            glowIntensity={0.5}
-            saturation={0.2}
-            hueShift={200}
-            transparent={false}
-            repulsionStrength={3}
-            twinkleIntensity={0.5}
-          />
+          <Suspense fallback={<div className="w-full h-full bg-[#0a0b14]" />}>
+            <Galaxy 
+              mouseRepulsion={true}
+              mouseInteraction={true}
+              density={1.5}
+              glowIntensity={0.5}
+              saturation={0.2}
+              hueShift={200}
+              transparent={false}
+              repulsionStrength={3}
+              twinkleIntensity={0.5}
+            />
+          </Suspense>
         </div>
         
         {/* Gradient Overlay */}
@@ -153,6 +164,9 @@ function Home() {
                 autoPlay 
                 loop 
                 muted
+                playsInline
+                loading="lazy"
+                poster="/hanbg.jpg"
               >
                 <source src="/hanketsu.MP4" type="video/mp4" />
               </video>
@@ -173,7 +187,9 @@ This is HANKETSU. This is justice, unleashed
           </div>
         </div>
         <div className="h-[350px] xs:h-[400px] sm:h-[450px] md:h-[550px] lg:h-[600px] w-full overflow-hidden" style={{ width: "100vw", position: "relative", left: "50%", right: "50%", marginLeft: "-50vw", marginRight: "-50vw"}}>
-          <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} scrollEase={0.02} onCardClick={handleCardClick}/>
+          <Suspense fallback={<ComponentLoader />}>
+            <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} scrollEase={0.02} onCardClick={handleCardClick}/>
+          </Suspense>
         </div>
       </div>
       
@@ -184,15 +200,19 @@ This is HANKETSU. This is justice, unleashed
           <p className="text-lg text-white/70 text-center mb-12 max-w-2xl mx-auto">
             Discover our latest insights on corporate law, fintech regulations, and market dynamics
           </p>
-          <Carousel />
+          <Suspense fallback={<ComponentLoader />}>
+            <Carousel />
+          </Suspense>
           
           {/* All Blogs Grid Section */}
           <div className="mt-20">
             <h3 className="text-3xl font-bold text-white mb-8">All Blog Posts</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {(showAllBlogs ? blogs : blogs.slice(0, 3)).map((blog) => (
-                <BlogCardLarge key={blog.id} blog={blog} />
-              ))}
+              <Suspense fallback={<ComponentLoader />}>
+                {(showAllBlogs ? blogs : blogs.slice(0, 3)).map((blog) => (
+                  <BlogCardLarge key={blog.id} blog={blog} />
+                ))}
+              </Suspense>
             </div>
             
             {/* View All Blogs Button */}
