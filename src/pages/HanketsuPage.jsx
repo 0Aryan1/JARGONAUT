@@ -10,6 +10,9 @@ function HanketsuPage() {
 
   // Read episode from URL query parameter on mount
   useEffect(() => {
+    // Smooth scroll to top when page loads
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    
     const episodeParam = searchParams.get('episode');
     if (episodeParam) {
       const episodeId = parseInt(episodeParam, 10);

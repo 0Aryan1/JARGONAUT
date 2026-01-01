@@ -5,7 +5,12 @@ const BlogCardLarge = ({ blog }) => {
   const navigate = useNavigate();
 
   const handleReadMore = () => {
-    navigate(`/blog/${blog.id}`);
+    // Smooth scroll to top before navigation
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Small delay to allow scroll animation to start
+    setTimeout(() => {
+      navigate(`/blog/${blog.id}`);
+    }, 100);
   };
 
   return (

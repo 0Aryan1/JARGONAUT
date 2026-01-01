@@ -11,6 +11,11 @@ const BlogDetail = () => {
   
   const blog = blogs.find(b => b.id === parseInt(id));
 
+  // Smooth scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [id]);
+
   // Scroll behavior for navbar
   useEffect(() => {
     const handleScroll = () => {

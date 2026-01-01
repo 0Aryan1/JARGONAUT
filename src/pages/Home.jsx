@@ -23,7 +23,12 @@ function Home() {
 
   const handleCardClick = (episodeId) => {
     if (episodeId && typeof episodeId === 'number') {
-      navigate(`/hanketsu?episode=${episodeId}`);
+      // Smooth scroll to top before navigation
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Small delay to allow scroll animation to start
+      setTimeout(() => {
+        navigate(`/hanketsu?episode=${episodeId}`);
+      }, 100);
     }
   };
 

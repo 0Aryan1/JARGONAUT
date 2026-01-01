@@ -9,6 +9,11 @@ function About() {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  // Smooth scroll to top when page loads
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   // Scroll behavior for navbar
   useEffect(() => {
     const handleScroll = () => {
