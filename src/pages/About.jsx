@@ -178,7 +178,7 @@ function About() {
 
             {/* About/Mission Text - RIGHT SIDE */}
             <div className="space-y-6">
-              <h3 className="text-3xl font-bold text-white">Developer Note</h3>
+              <h3 className="text-3xl font-bold text-white">Developer's Note</h3>
               <p className="text-white/80 leading-relaxed text-justify">
               I am Aryan Agrawal, an experienced developer focused on building clean, reliable, and user-oriented digital solutions. 
               </p>
