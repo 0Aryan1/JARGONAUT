@@ -5,9 +5,9 @@ import { blogs } from '../data/blogs';
 
 // Lazy load heavy components
 const Carousel = lazy(() => import('../components/carousel/Carousel'));
+const HanketsuCarousel = lazy(() => import('../components/carousel/HanketsuCarousel'));
 const BlogCardLarge = lazy(() => import('../components/BlogCardLarge'));
 const Galaxy = lazy(() => import('../components/Galaxy'));
-const CircularGallery = lazy(() => import('../components/CircularGallery'));
 
 // Simple loading placeholder
 const ComponentLoader = () => (
@@ -186,9 +186,9 @@ This is HANKETSU. This is justice, unleashed
             </div>
           </div>
         </div>
-        <div className="h-[350px] xs:h-[400px] sm:h-[450px] md:h-[550px] lg:h-[600px] w-full overflow-hidden" style={{ width: "100vw", position: "relative", left: "50%", right: "50%", marginLeft: "-50vw", marginRight: "-50vw"}}>
+        <div className="px-4 md:px-8 lg:px-12">
           <Suspense fallback={<ComponentLoader />}>
-            <CircularGallery bend={3} textColor="#ffffff" borderRadius={0.05} scrollEase={0.02} onCardClick={handleCardClick}/>
+            <HanketsuCarousel onCardClick={handleCardClick} />
           </Suspense>
         </div>
       </div>
