@@ -1,9 +1,16 @@
 // src/components/carousel/HanketsuCarousel.jsx
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
 
 export default function HanketsuCarousel({ onCardClick }) {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    // Ensure component is mounted before rendering carousel
+    setIsLoaded(true);
+  }, []);
+
   // Define Hanketsu episodes
   const episodes = [
     { id: 1, image: '/han1.webp', title: 'Episode 1' },
@@ -15,7 +22,7 @@ export default function HanketsuCarousel({ onCardClick }) {
 
   // Create carousel items
   const items = episodes.map((episode) => (
-    <div key={episode.id} className="px-4">
+    <div key={episode.id} className="px-4 py-4">
       <div
         onClick={() => onCardClick && onCardClick(episode.id)}
         className="relative group cursor-pointer overflow-hidden rounded-2xl shadow-2xl transform transition-all duration-300 hover:scale-105"
@@ -25,6 +32,7 @@ export default function HanketsuCarousel({ onCardClick }) {
           src={episode.image}
           alt={`Hanketsu ${episode.title}`}
           className="w-full h-[400px] md:h-[500px] object-cover"
+          loading="lazy"
         />
         
         {/* Overlay */}
@@ -47,8 +55,16 @@ export default function HanketsuCarousel({ onCardClick }) {
     </div>
   ));
 
+  if (!isLoaded) {
+    return (
+      <div className="w-full max-w-7xl mx-auto h-[500px] flex items-center justify-center">
+        <div className="animate-pulse text-white/50">Loading carousel...</div>
+      </div>
+    );
+  }
+
   return (
-    <div className="w-full max-w-7xl mx-auto">
+    <div className="w-full max-w-7xl mx-auto py-8">
       <AliceCarousel
         mouseTracking
         items={items}

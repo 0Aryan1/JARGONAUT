@@ -186,8 +186,12 @@ This is HANKETSU. This is justice, unleashed
             </div>
           </div>
         </div>
-        <div className="px-4 md:px-8 lg:px-12">
-          <Suspense fallback={<ComponentLoader />}>
+        <div className="px-4 md:px-8 lg:px-12 mb-12">
+          <Suspense fallback={
+            <div className="w-full max-w-7xl mx-auto h-[500px] flex items-center justify-center">
+              <div className="animate-pulse text-white/50">Loading Hanketsu Episodes...</div>
+            </div>
+          }>
             <HanketsuCarousel onCardClick={handleCardClick} />
           </Suspense>
         </div>
