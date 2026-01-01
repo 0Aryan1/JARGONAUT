@@ -173,7 +173,7 @@ function Home() {
                 loading="lazy"
                 poster="/hanbg.webp"
               >
-                <source src="/hanketsu.MP4" type="video/mp4" />
+                <source src="/hanketsu.mp4" type="video/mp4" />
               </video>
             </div>
             
