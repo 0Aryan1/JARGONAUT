@@ -117,11 +117,11 @@ const BlogDetail = () => {
           </div>
 
           {/* Featured Image */}
-          <div className="mb-12 rounded-2xl overflow-hidden shadow-2xl">
+          <div className="mb-12 rounded-2xl overflow-hidden">
             <img 
               src={blog.image} 
               alt={blog.title}
-              className="w-full h-80  sm:h-auto md:h-[28rem] lg:h-[36rem] xl:h-[42rem] object-cover"
+              className="w-full max-h-[500px] object-contain"
             />
           </div>
 
