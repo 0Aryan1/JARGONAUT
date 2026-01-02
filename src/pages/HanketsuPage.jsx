@@ -183,7 +183,11 @@ function HanketsuPage() {
               {episodes.map((episode) => (
                 <button
                   key={episode.id}
-                  onClick={() => setSelectedEpisode(episode.id)}
+                  onClick={() => {
+                    setSelectedEpisode(episode.id);
+                    // Update URL with the new episode parameter
+                    navigate(`/hanketsu?episode=${episode.id}`, { replace: true });
+                  }}
                   className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                     selectedEpisode === episode.id
                       ? 'bg-white text-black shadow-xl scale-110'
