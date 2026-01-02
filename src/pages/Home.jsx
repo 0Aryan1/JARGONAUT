@@ -197,7 +197,7 @@ This is HANKETSU. This is justice, unleashed
               <div className="animate-pulse text-white/50">Loading Hanketsu Episodes...</div>
             </div>
           }>
-            <HanketsuCarousel onCardClick={handleCardClick} />
+            <HanketsuCarousel  onCardClick={handleCardClick} />
           </Suspense>
         </div>
       </div>
