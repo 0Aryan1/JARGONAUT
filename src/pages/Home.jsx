@@ -203,7 +203,7 @@ This is HANKETSU. This is justice, unleashed
       </div>
       
       {/* Featured Blogs Section */}
-      <div id="blogs" className="min-h-screen px-8 py-20 text-white/90">
+      <div id="blogs" className="min-h-screen px-8 pt-4 pb-8 text-white/90">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-5xl font-bold text-white mb-4 text-center">Featured Blogs</h2>
           <p className="text-lg text-white/70 text-center mb-12 max-w-2xl mx-auto">
