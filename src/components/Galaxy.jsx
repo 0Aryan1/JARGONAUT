@@ -193,13 +193,27 @@ export default function Galaxy({
   const smoothMousePos = useRef({ x: 0.5, y: 0.5 });
   const targetMouseActive = useRef(0.0);
   const smoothMouseActive = useRef(0.0);
+  const isVisible = useRef(true);
 
   useEffect(() => {
     if (!ctnDom.current) return;
     const ctn = ctnDom.current;
+    
+    // Intersection Observer to pause when not visible
+    const observer = new IntersectionObserver(
+      (entries) => {
+        isVisible.current = entries[0].isIntersecting;
+      },
+      { threshold: 0.01 }
+    );
+    
+    observer.observe(ctn);
+    
     const renderer = new Renderer({
       alpha: transparent,
-      premultipliedAlpha: false
+      premultipliedAlpha: false,
+      antialias: false, // Disabled for performance
+      powerPreference: "high-performance"
     });
     const gl = renderer.gl;
 
@@ -212,6 +226,7 @@ export default function Galaxy({
     }
 
     let program;
+    let resizeTimeout;
 
     function resize() {
       const scale = 1;
@@ -224,7 +239,13 @@ export default function Galaxy({
         );
       }
     }
-    window.addEventListener('resize', resize, false);
+    
+    function handleResize() {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(resize, 150); // Debounce resize
+    }
+    
+    window.addEventListener('resize', handleResize, false);
     resize();
 
     const geometry = new Triangle(gl);
@@ -259,9 +280,28 @@ export default function Galaxy({
 
     const mesh = new Mesh(gl, { geometry, program });
     let animateId;
+    let lastFrameTime = performance.now();
 
     function update(t) {
       animateId = requestAnimationFrame(update);
+      
+      // Skip rendering when not visible
+      if (!isVisible.current) {
+        return;
+      }
+      
+      // Calculate delta time for consistent animation
+      const now = performance.now();
+      const delta = now - lastFrameTime;
+      
+      // Skip frame if browser is struggling (delta > 50ms means < 20fps)
+      if (delta > 50) {
+        lastFrameTime = now;
+        return;
+      }
+      
+      lastFrameTime = now;
+      
       if (!disableAnimation) {
         program.uniforms.uTime.value = t * 0.001;
         program.uniforms.uStarSpeed.value = (t * 0.001 * starSpeed) / 10.0;
@@ -295,19 +335,24 @@ export default function Galaxy({
     }
 
     if (mouseInteraction) {
-      ctn.addEventListener('mousemove', handleMouseMove);
+      ctn.addEventListener('mousemove', handleMouseMove, { passive: true });
       ctn.addEventListener('mouseleave', handleMouseLeave);
     }
 
     return () => {
+      observer.disconnect();
       cancelAnimationFrame(animateId);
-      window.removeEventListener('resize', resize);
+      clearTimeout(resizeTimeout);
+      window.removeEventListener('resize', handleResize);
       if (mouseInteraction) {
         ctn.removeEventListener('mousemove', handleMouseMove);
         ctn.removeEventListener('mouseleave', handleMouseLeave);
       }
-      ctn.removeChild(gl.canvas);
-      gl.getExtension('WEBGL_lose_context')?.loseContext();
+      if (gl.canvas && ctn.contains(gl.canvas)) {
+        ctn.removeChild(gl.canvas);
+      }
+      const loseContext = gl.getExtension('WEBGL_lose_context');
+      if (loseContext) loseContext.loseContext();
     };
   }, [
     focal,
