@@ -76,7 +76,7 @@ export default function HanketsuCarousel({ onCardClick }) {
         infinite
         disableButtonsControls={false}
         autoPlay={true}
-        autoPlayInterval={2000}
+        autoPlayInterval={1500}
         autoPlayStrategy="default"
         animationDuration={800}
         disableDotsControls={false}
