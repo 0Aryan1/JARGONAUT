@@ -1,7 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import appwriteService from '../appwrite/config'
 
-const BlogCardLarge = ({ blog }) => {
+const BlogCardLarge = ({ $id,title,featuredImage,Author,content }) => {
   const navigate = useNavigate();
 
   const handleReadMore = () => {
@@ -9,7 +10,7 @@ const BlogCardLarge = ({ blog }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     // Small delay to allow scroll animation to start
     setTimeout(() => {
-      navigate(`/blog/${blog.id}`);
+      navigate(`/post/${$id}`);
     }, 100);
   };
 
@@ -17,9 +18,7 @@ const BlogCardLarge = ({ blog }) => {
     <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform-gpu h-full flex flex-col">
       {/* Blog Image */}
       <div className="h-48 overflow-hidden">
-        <img 
-          src={blog.image} 
-          alt={blog.title}
+        <img src={appwriteService.getFilePreview(featuredImage)} alt={title} 
           className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
         />
       </div>
@@ -34,17 +33,17 @@ const BlogCardLarge = ({ blog }) => {
             day: 'numeric' 
           })}</span> */}
           {/* <span>•</span> */}
-          <span>{blog.author}</span>
+          <span>{Author}</span>
         </div>
         
         {/* Title */}
         <h3 className="text-xl font-bold text-white mb-3 line-clamp-2">
-          {blog.title}
+          {title}
         </h3>
         
         {/* Description */}
         <p className="text-white/80 text-sm mb-4 line-clamp-3 flex-grow">
-          {blog.description}
+          {content}
         </p>
         
         {/* Read More Button */}

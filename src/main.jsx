@@ -2,6 +2,8 @@ import { StrictMode, lazy, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
+import { Provider } from 'react-redux'
+import store from './store/store.jsx'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 
 // Lazy load all pages for better code splitting
@@ -60,6 +62,8 @@ const src = createBrowserRouter(
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={src} />
+   <Provider store={store}>
+    <RouterProvider router={src}/>
+    </Provider>
   </StrictMode>,
 )

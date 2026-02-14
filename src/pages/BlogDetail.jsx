@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { blogs } from '../data/blogs';
 import Footer from '../components/Footer';
+import Navbar from '../components/navbar/Navbar';
 
 const BlogDetail = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const [isNavVisible, setIsNavVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
   
   const blog = blogs.find(b => b.id === parseInt(id));
 
@@ -15,26 +14,6 @@ const BlogDetail = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [id]);
-
-  // Scroll behavior for navbar
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      
-      if (currentScrollY < lastScrollY || currentScrollY < 100) {
-        // Scrolling up or at top - show navbar
-        setIsNavVisible(true);
-      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        // Scrolling down and past threshold - hide navbar
-        setIsNavVisible(false);
-      }
-      
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY]);
 
   if (!blog) {
     return (
@@ -55,35 +34,7 @@ const BlogDetail = () => {
   return (
     <div className="min-h-screen bg-[#faf8f5]">
       {/* Navigation Bar */}
-      <nav className={`fixed left-4 right-4 z-50 transition-all duration-300 ${
-        isNavVisible ? 'top-4' : '-top-24'
-      }`}>
-        <div className="max-w-7xl mx-auto">
-          <div className="bg-white/95 backdrop-blur-md rounded-full border border-[#e5e1da] shadow-lg">
-            <div className="flex items-center justify-between h-16 px-8">
-              <button 
-                onClick={() => navigate('/')}
-                className="flex items-center gap-2 hover:scale-105 transition-transform duration-200"
-              >
-                <span className="text-[#2c2c2c] text-xl">←</span>
-                <img 
-                  src="/logo.webp" 
-                  alt="The Jargonaut Logo" 
-                  className="h-14 md:h-20 lg:h-24 w-auto object-contain"
-                />
-              </button>
-              
-              <div className="hidden md:block">
-                <div className="ml-10 flex items-center space-x-8">
-                  <button onClick={() => navigate('/')} className="nav-link relative px-6 py-2 text-[#4a4a4a] hover:text-[#2c2c2c] transition-all duration-200 hover:scale-105">
-                    Blog
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navbar position="fixed" scrollBehavior={true} />
 
       {/* Blog Content */}
       <div className="pt-32 pb-20 px-4">
