@@ -1,5 +1,5 @@
-import React, { useState, lazy, Suspense } from 'react';
-import { blogs } from '../data/blogs';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
+import appwriteService from '../appwrite/config';
 
 // Lazy load BlogCardLarge
 const BlogCardLarge = lazy(() => import('./BlogCardLarge'));
@@ -11,11 +11,33 @@ const ComponentLoader = () => (
   </div>
 );
 
-function AllPosts() {
+function AllPosts({ showOnlyFirst3 = false }) {
+  const [blogs, setBlogs] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [showAllBlogs, setShowAllBlogs] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
 
+  // Fetch blogs from Appwrite on component mount
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        setLoading(true);
+        const response = await appwriteService.getPosts();
+        if (response && response.documents) {
+          setBlogs(response.documents);
+        }
+      } catch (error) {
+        console.error('Error fetching blogs:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
+
+  // If showOnlyFirst3 is true, always show only 3 blogs
   // Get unique categories from blogs
   // const categories = ['All', ...new Set(blogs.map(blog => blog.category))];
 
@@ -29,14 +51,26 @@ function AllPosts() {
   });
 
   // Determine which blogs to display
-  const displayedBlogs = showAllBlogs ? filteredBlogs : filteredBlogs.slice(0, 3);
+  const displayedBlogs = showOnlyFirst3 
+    ? filteredBlogs.slice(0, 3) 
+    : (showAllBlogs ? filteredBlogs : filteredBlogs.slice(0, 3));
+
+  // If there are no blogs and showOnlyFirst3 is true, return null (don't render anything)
+  if (showOnlyFirst3 && !loading && blogs.length === 0) {
+    return null;
+  }
 
   return (
     <div className="mt-20">
       <h3 className="text-3xl font-bold text-white mb-8">All Blog Posts</h3>
       
-      {/* Search and Filter Section */}
-      <div className="mb-8 space-y-4">
+      {/* Loading State */}
+      {loading ? (
+        <ComponentLoader />
+      ) : (
+        <>
+          {/* Search and Filter Section */}
+          <div className="mb-8 space-y-4">
         {/* Search Bar */}
         {/* <div className="relative">
           <input
@@ -106,7 +140,7 @@ function AllPosts() {
       )}
       
       {/* View All / Show Less Button */}
-      {filteredBlogs.length > 3 && (
+      {!showOnlyFirst3 && filteredBlogs.length > 3 && (
         <div className="mt-12 text-center">
           <button
             type="button"
@@ -124,6 +158,8 @@ function AllPosts() {
             {showAllBlogs ? 'Show Less' : `View All ${filteredBlogs.length} Blogs`}
           </button>
         </div>
+      )}
+        </>
       )}
     </div>
   );

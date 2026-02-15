@@ -1,8 +1,9 @@
-import React, { lazy, Suspense } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Navbar from '../components/navbar/Navbar';
 import AllPosts from '../components/AllPosts';
+import appwriteService from '../appwrite/config';
 
 // Lazy load heavy components
 const Carousel = lazy(() => import('../components/carousel/Carousel'));
@@ -18,6 +19,22 @@ const ComponentLoader = () => (
 
 function Home() {
   const navigate = useNavigate();
+  const [hasBlogsData, setHasBlogsData] = useState(true);
+
+  // Check if blogs exist
+  useEffect(() => {
+    const checkBlogs = async () => {
+      try {
+        const response = await appwriteService.getPosts();
+        setHasBlogsData(response && response.documents && response.documents.length > 0);
+      } catch (error) {
+        console.error('Error checking blogs:', error);
+        setHasBlogsData(false);
+      }
+    };
+    
+    checkBlogs();
+  }, []);
 
   const handleCardClick = (episodeId) => {
     if (episodeId && typeof episodeId === 'number') {
@@ -117,21 +134,23 @@ This is HANKETSU. This is justice, unleashed
         </div>
       </div>
       
-      {/* Featured Blogs Section */}
-      <div id="blogs" className="min-h-screen px-8 pt-4 pb-8 text-white/90">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-5xl font-bold text-white mb-4 text-center">Featured Blogs</h2>
-          <p className="text-lg text-white/70 text-center mb-12 max-w-2xl mx-auto">
-            Discover our latest insights on corporate law, fintech regulations, and market dynamics
-          </p>
-          <Suspense fallback={<ComponentLoader />}>
-            <Carousel />
-          </Suspense>
-          
-          {/* All Blogs Section - Using AllPosts Component */}
-          <AllPosts />
+      {/* Featured Blogs Section - Only show if there are blogs */}
+      {hasBlogsData && (
+        <div id="blogs" className="min-h-screen px-8 pt-4 pb-8 text-white/90">
+          <div className="max-w-7xl mx-auto">
+            <h2 className="text-5xl font-bold text-white mb-4 text-center">Featured Blogs</h2>
+            <p className="text-lg text-white/70 text-center mb-12 max-w-2xl mx-auto">
+              Discover our latest insights on corporate law, fintech regulations, and market dynamics
+            </p>
+            <Suspense fallback={<ComponentLoader />}>
+              <Carousel />
+            </Suspense>
+            
+            {/* All Blogs Section - Using AllPosts Component */}
+            <AllPosts showOnlyFirst3={true} />
+          </div>
         </div>
-      </div>
+      )}
       {/* Footer */}
       <Footer />
     </div>

@@ -1,21 +1,44 @@
-import React, { useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { blogs } from '../data/blogs';
+import React, { useEffect,useState } from 'react';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Navbar from '../components/navbar/Navbar';
+import appwriteService from "../appwrite/config";
+import parse from "html-react-parser";
+import { useSelector } from "react-redux";
 
 const BlogDetail = () => {
-  const { id } = useParams();
+   const [post, setPost] = useState(null);
+  const { slug } = useParams();
   const navigate = useNavigate();
+  const userData = useSelector((state) => state.auth.userData);
+  const isAuthor = post && userData ? post.userId === userData.$id : false;
+
   
-  const blog = blogs.find(b => b.id === parseInt(id));
 
   // Smooth scroll to top when page loads
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [id]);
+  }, [slug]);
 
-  if (!blog) {
+   useEffect(() => {
+        if (slug) {
+            appwriteService.getPost(slug).then((post) => {
+                if (post) setPost(post);
+                else navigate("/");
+            });
+        } else navigate("/");
+    }, [slug, navigate]);
+
+   const deletePost = () => {
+        appwriteService.deletePost(post.$id).then((status) => {
+            if (status) {
+                appwriteService.deleteFile(post.featuredImage);
+                navigate("/");
+            }
+        });
+    };
+
+  if (!post) {
     return (
       <div className="min-h-screen bg-[#faf8f5] flex items-center justify-center">
         <div className="text-center">
@@ -55,23 +78,39 @@ const BlogDetail = () => {
                 day: 'numeric' 
               })}</span>
               <span>•</span> */}
-              <span>{blog.author}</span>
+              <span>{post.author}</span>
             </div>
+
+            {isAuthor && (
+              <div className="mb-4 flex gap-3">
+                <Link to={`/edit-post/${post.$id}`}>
+                  <button className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full transition-all duration-300">
+                    Edit
+                  </button>
+                </Link>
+                <button 
+                  onClick={deletePost}
+                  className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-full transition-all duration-300"
+                >
+                  Delete
+                </button>
+              </div>
+            )}
             
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#000000] mb-6 leading-tight break-words">
-              {blog.title}
+              {post.title}
             </h1>
             
-            <p className="text-xl text-[#1a1a1a] mb-8 leading-relaxed">
+            {/* <p className="text-xl text-[#1a1a1a] mb-8 leading-relaxed">
               {blog.description}
-            </p>
+            </p> */}
           </div>
 
           {/* Featured Image */}
           <div className="mb-12 rounded-2xl overflow-hidden">
             <img 
-              src={blog.image} 
-              alt={blog.title}
+              src={appwriteService.getFilePreview(post.featuredImage)} 
+              alt={post.title}
               className="w-full max-h-[500px] object-contain"
             />
           </div>
@@ -79,11 +118,12 @@ const BlogDetail = () => {
           {/* Blog Content */}
           <div 
             className="prose prose-stone prose-lg max-w-none"
-            dangerouslySetInnerHTML={{ __html: blog.content }}
             style={{
               color: '#1a1a1a',
             }}
-          />
+          >
+             {parse(post.content)}
+          </div>
 
           {/* Navigation */}
           <div className="mt-16 pt-8 border-t border-[#e5e1da]">
@@ -96,6 +136,9 @@ const BlogDetail = () => {
           </div>
         </div>
       </div>
+      
+      {/* Footer */}
+      <Footer />
     </div>
   );
 };

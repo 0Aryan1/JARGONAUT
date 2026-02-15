@@ -99,9 +99,10 @@ function Navbar({ position = 'absolute', scrollBehavior = false }) {
                     </button>
                     <button 
                       onClick={() => navigate('/signup')} 
-                      className="nav-link relative px-6 py-2 bg-white/20 text-white hover:bg-white/30 transition-all duration-200 hover:scale-105 rounded-full"
+                      className="nav-link relative px-6 py-2 text-white/90 hover:text-white transition-all duration-200 hover:scale-105 group"
                     >
                       Sign Up
+                      <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 rounded-full transition-all duration-200"></div>
                     </button>
                   </>
                 )}
@@ -184,7 +185,7 @@ function Navbar({ position = 'absolute', scrollBehavior = false }) {
                       setMobileMenuOpen(false);
                       navigate('/signup');
                     }}
-                    className="block w-full text-left px-4 py-3 bg-white/20 text-white hover:bg-white/30 rounded-xl transition-all duration-200 text-sm font-medium"
+                    className="block w-full text-left px-4 py-3 text-white/90 hover:text-white hover:bg-white/10 rounded-xl transition-all duration-200 text-sm font-medium"
                   >
                     Sign Up
                   </button>
