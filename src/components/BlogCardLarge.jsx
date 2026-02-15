@@ -10,8 +10,16 @@ const BlogCardLarge = ({ blog }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     // Small delay to allow scroll animation to start
     setTimeout(() => {
-      navigate(`/post/${blog.$id || blog.slug || blog.id}`);
+      navigate(`/post/${blog.slug}`);
     }, 100);
+  };
+
+  // Function to strip HTML tags and get plain text
+  const stripHtmlTags = (html) => {
+    if (!html) return '';
+    const tmp = document.createElement('DIV');
+    tmp.innerHTML = html;
+    return tmp.textContent || tmp.innerText || '';
   };
 
   return (
@@ -27,12 +35,12 @@ const BlogCardLarge = ({ blog }) => {
       <div className="p-6 flex flex-col flex-grow">
         {/* Date and Author */}
         <div className="flex items-center gap-3 text-sm text-white/60 mb-3">
-          {/* <span>{new Date(blog.date).toLocaleDateString('en-US', { 
+          <span>{new Date(blog.$createdAt).toLocaleDateString('en-US', { 
             year: 'numeric', 
             month: 'short', 
             day: 'numeric' 
-          })}</span> */}
-          {/* <span>•</span> */}
+          })}</span>
+          <span>•</span>
           <span>{blog.Author || blog.author}</span>
         </div>
         
@@ -42,9 +50,9 @@ const BlogCardLarge = ({ blog }) => {
         </h3>
         
         {/* Description */}
-        <p className="text-white/80 text-sm mb-4 line-clamp-3 flex-grow">
-          {blog.content}
-        </p>
+        {/* <p className="text-white/80 text-sm mb-4 line-clamp-3 flex-grow">
+          {stripHtmlTags(blog.content)}
+        </p> */}
         
         {/* Read More Button */}
         <button

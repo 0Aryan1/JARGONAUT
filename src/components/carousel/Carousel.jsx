@@ -33,7 +33,7 @@ export default function Carousel() {
 
   // Create carousel items from blog cards
   const items = featuredBlogs.map((blog) => (
-    <div key={blog.$id} className="px-4">
+    <div key={blog.$id} className="px-4 h-[400px]">
       <BlogCardLarge blog={blog} />
     </div>
   ));

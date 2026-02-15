@@ -14,13 +14,15 @@ export class Service{
 
     async getPost(slug){
         try{
-            return await this.databases.getDocument(
+            const response = await this.databases.listDocuments(
                 conf.appwriteDatabaseId, 
                 conf.appwriteCollectionId, 
-                slug
+                [Query.equal("slug", slug)]
             )
+            return response.documents[0] || null;
         } catch(error) {
             console.log("Apwrite service :: getPost() ::", error)
+            return null;
         }
     }
 
@@ -39,12 +41,16 @@ export class Service{
 
     async createPost({title,slug, content, featuredImage, status, userId, Author}){
         try{
+            console.log('Creating post with data:', { title, slug, content, featuredImage, status, userId, Author });
+            console.log('userId value:', userId);
+            console.log('userId type:', typeof userId);
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
-                slug,
+                ID.unique(),
                 {
                     title,
+                    slug,
                     content,
                     featuredImage,
                     status,
@@ -54,17 +60,25 @@ export class Service{
             )
         } catch(error){
             console.log("Apwrite service :: createPost() ::", error)
+            throw error;
         }
     }
 
-    async updatePost(slug, {title,content,featuredImage,status}){
+    async updatePost(slug, {title, slug: newSlug, content,featuredImage,status}){
         try{
+            // First find the document by slug
+            const post = await this.getPost(slug);
+            if (!post) {
+                throw new Error("Post not found");
+            }
+            
             return await this.databases.updateDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
-                slug,
+                post.$id,
                 {
                     title,
+                    slug: newSlug || slug,
                     content,
                     featuredImage,
                     status
@@ -72,15 +86,22 @@ export class Service{
             )
         } catch(error){
             console.log("Apwrite service :: updatePost() ::", error)
+            throw error;
         }
     }
 
     async deletePost(slug){
         try{
-                await this.databases.deleteDocument(
+            // First find the document by slug
+            const post = await this.getPost(slug);
+            if (!post) {
+                throw new Error("Post not found");
+            }
+            
+            await this.databases.deleteDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
-                slug
+                post.$id
             )
             return true;
         } catch(error){

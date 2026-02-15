@@ -13,7 +13,7 @@ function Select({
             {label && (
             <label 
             htmlFor={id}
-            className='inline-block mb-1 pl-1'
+            className='inline-block mb-1 pl-1 text-white font-medium capitalize'
             >{label}
             </label>
           )}
@@ -34,7 +34,7 @@ function Select({
                 ))
             }
           </select>
-          
+
         </div>
     )
 }

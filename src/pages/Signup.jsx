@@ -33,7 +33,7 @@ function Signup() {
       const userData = await authService.createAccount(data);
       if (userData) {
         const currentUser = await authService.getCurrentUser();
-        if (currentUser) dispatch(authLogin({ userData: currentUser }));
+        if (currentUser) dispatch(authLogin(currentUser));
         navigate('/');
       }
     } catch (error) {

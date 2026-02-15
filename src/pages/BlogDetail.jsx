@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 
 const BlogDetail = () => {
    const [post, setPost] = useState(null);
+   const [loading, setLoading] = useState(true);
   const { slug } = useParams();
   const navigate = useNavigate();
   const userData = useSelector((state) => state.auth.userData);
@@ -22,21 +23,33 @@ const BlogDetail = () => {
 
    useEffect(() => {
         if (slug) {
+            setLoading(true);
             appwriteService.getPost(slug).then((post) => {
                 if (post) setPost(post);
                 else navigate("/");
-            });
+            }).finally(() => setLoading(false));
         } else navigate("/");
     }, [slug, navigate]);
 
    const deletePost = () => {
-        appwriteService.deletePost(post.$id).then((status) => {
+        appwriteService.deletePost(post.slug).then((status) => {
             if (status) {
                 appwriteService.deleteFile(post.featuredImage);
                 navigate("/");
             }
         });
     };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-[#0a0b14] flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-16 w-16 border-b-2 border-white mx-auto mb-4"></div>
+          <h2 className="text-2xl text-white">Loading...</h2>
+        </div>
+      </div>
+    );
+  }
 
   if (!post) {
     return (
@@ -57,7 +70,7 @@ const BlogDetail = () => {
   return (
     <div className="min-h-screen bg-[#faf8f5]">
       {/* Navigation Bar */}
-      <Navbar position="fixed" scrollBehavior={true} />
+      <Navbar position="fixed" scrollBehavior={true} useDarkMode={true} />
 
       {/* Blog Content */}
       <div className="pt-32 pb-20 px-4">
@@ -72,18 +85,18 @@ const BlogDetail = () => {
             </button>
             
             <div className="flex items-center gap-3 text-sm text-[#4a4a4a] mb-4">
-              {/* <span>{new Date(blog.date).toLocaleDateString('en-US', { 
+              <span>{new Date(post.$createdAt).toLocaleDateString('en-US', { 
                 year: 'numeric', 
                 month: 'long', 
                 day: 'numeric' 
               })}</span>
-              <span>•</span> */}
-              <span>{post.author}</span>
+              <span>•</span>
+              <span>{post.Author || post.author}</span>
             </div>
 
             {isAuthor && (
               <div className="mb-4 flex gap-3">
-                <Link to={`/edit-post/${post.$id}`}>
+                <Link to={`/edit-post/${post.slug}`}>
                   <button className="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded-full transition-all duration-300">
                     Edit
                   </button>
@@ -136,9 +149,6 @@ const BlogDetail = () => {
           </div>
         </div>
       </div>
-      
-      {/* Footer */}
-      <Footer />
     </div>
   );
 };
