@@ -68,13 +68,15 @@ const BlogDetail = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#faf8f5]">
+    <div className="min-h-screen bg-[#faf8f5] w-full overflow-x-hidden">
+
       {/* Navigation Bar */}
       <Navbar position="fixed" scrollBehavior={true} useDarkMode={true} />
 
       {/* Blog Content */}
       <div className="pt-32 pb-20 px-4">
-        <div className="max-w-4xl mx-auto">
+       <div className="max-w-4xl mx-auto w-full">
+
           {/* Blog Header */}
           <div className="mb-8">
             <button
