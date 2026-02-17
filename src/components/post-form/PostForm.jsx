@@ -22,55 +22,104 @@ export default function PostForm({post}){
     const navigate = useNavigate()
     const userData = useSelector((state) => state.auth.userData)
 
-    const submit = async(data) => {
-        try {
-            console.log('userData in PostForm:', userData);
-            console.log('userData.$id:', userData?.$id);
-            if (!userData) {
-                alert("You must be logged in to create a post!");
-                return;
-            }
+    // const submit = async(data) => {
+    //     try {
+    //         console.log('userData in PostForm:', userData);
+    //         console.log('userData.$id:', userData?.$id);
+    //         if (!userData) {
+    //             alert("You must be logged in to create a post!");
+    //             return;
+    //         }
             
-            if (post) {
-                const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null;
+    //         if (post) {
+    //             const file = data.image[0] ? await appwriteService.uploadFile(data.image[0]) : null;
 
-                if (file) {
-                    appwriteService.deleteFile(post.featuredImage);
-                }
+    //             if (file) {
+    //                 appwriteService.deleteFile(post.featuredImage);
+    //             }
 
-                const dbPost = await appwriteService.updatePost(post.slug, {
-                    ...data,
-                    featuredImage: file ? file.$id : undefined,
-                });
+    //             const dbPost = await appwriteService.updatePost(post.slug, {
+    //                 ...data,
+    //                 featuredImage: file ? file.$id : undefined,
+    //             });
 
-                if (dbPost) {
-                    navigate(`/post/${dbPost.slug}`);
-                }
-            } else {
+    //             if (dbPost) {
+    //                 navigate(`/post/${dbPost.slug}`);
+    //             }
+    //         } else {
                 
-                if (!data.image || !data.image[0]) {
-                    alert("Please select an image!");
-                    return;
-                }
+    //             if (!data.image || !data.image[0]) {
+    //                 alert("Please select an image!");
+    //                 return;
+    //             }
                 
-                const file = await appwriteService.uploadFile(data.image[0]);
+    //             const file = await appwriteService.uploadFile(data.image[0]);
 
-                if (file) {
-                    const fileId = file.$id;
-                    data.featuredImage = fileId;
+    //             if (file) {
+    //                 const fileId = file.$id;
+    //                 data.featuredImage = fileId;
                     
-                    const dbPost = await appwriteService.createPost({ ...data, userId: userData.$id });
+    //                 const dbPost = await appwriteService.createPost({ ...data, userId: userData.$id });
 
-                    if (dbPost) {
-                        navigate(`/post/${dbPost.slug}`);
-                    }
-                }
-            }
-        } catch (error) {
-            console.error("Error in submit function:", error);
-            alert(`Error: ${error.message}`);
+    //                 if (dbPost) {
+    //                     navigate(`/post/${dbPost.slug}`);
+    //                 }
+    //             }
+    //         }
+    //     } catch (error) {
+    //         console.error("Error in submit function:", error);
+    //         alert(`Error: ${error.message}`);
+    //     }
+    // }
+
+    const submit = async (data) => {
+    try {
+        if (!userData) {
+            alert("You must be logged in to create a post!");
+            return;
         }
+
+        let fileId = null;
+
+        // Upload image only if selected
+        if (data.image && data.image[0]) {
+            const file = await appwriteService.uploadFile(data.image[0]);
+            fileId = file?.$id;
+        }
+
+        if (post) {
+            // If new image uploaded, delete old one
+            if (fileId && post.featuredImage) {
+                await appwriteService.deleteFile(post.featuredImage);
+            }
+
+            const dbPost = await appwriteService.updatePost(post.slug, {
+                ...data,
+                featuredImage: fileId || post.featuredImage,
+            });
+
+            if (dbPost) {
+                navigate(`/post/${dbPost.slug}`);
+            }
+
+        } else {
+            const dbPost = await appwriteService.createPost({
+                ...data,
+                featuredImage: fileId,
+                userId: userData.$id,
+            });
+
+            if (dbPost) {
+                navigate(`/post/${dbPost.slug}`);
+            }
+        }
+
+    } catch (error) {
+        console.error("Error in submit function:", error);
+        alert(`Error: ${error.message}`);
     }
+};
+
 
     const slugTransform = useCallback((value) => {
         if(value && typeof value === 'string') {
@@ -146,11 +195,13 @@ export default function PostForm({post}){
             type = 'file'
             className = 'mb-4'
             accept = 'image/png, image/jpeg, image/jpg'
-            {...register('image', {required: !post})}
+            {...register('image')}
+
             />
-            {errors.image && (
+            {/* {errors.image && (
                 <p className="text-red-500 text-sm mt-1">Image is required</p>
-            )}
+            )} */}
+            
             {post && (
                 <div className='w-full mb-4'>
                     <img src={appwriteService.getFilePreview(post.featuredImage)} alt={post.title} 
