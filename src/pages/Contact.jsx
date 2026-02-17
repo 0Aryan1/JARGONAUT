@@ -13,7 +13,7 @@ function Contact() {
 
       {/* Contact Content */}
       <div className="max-w-4xl mx-auto px-4 pt-32 pb-20">
-        <div className="text-center mb-12">
+        {/* <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
             Get in Touch
           </h1>
@@ -80,11 +80,11 @@ function Contact() {
               Send Message
             </button>
           </form>
-        </div>
+        </div> */}
 
         {/* Contact Info */}
         <div className="mt-12 text-center">
-          <p className="text-white/60 mb-4">Or reach out directly:</p>
+          <p className="text-white/60 mb-4">reach out directly:</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <a
               href="mailto:contact@thejargonaut.com"
