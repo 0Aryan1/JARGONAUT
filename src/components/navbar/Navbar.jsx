@@ -69,6 +69,14 @@ function Navbar({ position = 'absolute', scrollBehavior = false, useDarkMode = f
             {/* Desktop Navigation Items */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-center space-x-8">
+                <button
+                onClick={() => navigate("/", { state: { scrollTo: "blogs" } })}
+                className={`nav-link relative px-6 py-2 ${textClass} ${textHoverClass} transition-all duration-200 hover:scale-105 group`}
+                >
+                  Blogs
+                   <div className={`absolute inset-0 bg-white/0 ${hoverBgClass} rounded-full transition-all duration-200`}></div>
+                </button>
+
                 <button 
                   onClick={() => navigate('/about')} 
                   className={`nav-link relative px-6 py-2 ${textClass} ${textHoverClass} transition-all duration-200 hover:scale-105 group`}
@@ -105,13 +113,13 @@ function Navbar({ position = 'absolute', scrollBehavior = false, useDarkMode = f
                       Login
                       <div className={`absolute inset-0 bg-white/0 ${hoverBgClass} rounded-full transition-all duration-200`}></div>
                     </button>
-                    <button 
+                    {/* <button 
                       onClick={() => navigate('/signup')} 
                       className={`nav-link relative px-6 py-2 ${textClass} ${textHoverClass} transition-all duration-200 hover:scale-105 group`}
                     >
                       Sign Up
                       <div className={`absolute inset-0 bg-white/0 ${hoverBgClass} rounded-full transition-all duration-200`}></div>
-                    </button>
+                    </button> */}
                   </>
                 )}
               </div>

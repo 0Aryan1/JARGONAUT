@@ -1,5 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Navbar from '../components/navbar/Navbar';
 import AllPosts from '../components/AllPosts';
@@ -46,6 +46,17 @@ function Home() {
       }, 100);
     }
   };
+
+  const location = useLocation();
+
+useEffect(() => {
+  if (location.state?.scrollTo === "blogs") {
+    const section = document.getElementById("blogs");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  }
+}, [location]);
 
   return (
     <div className="min-h-screen bg-[#0a0b14]">
