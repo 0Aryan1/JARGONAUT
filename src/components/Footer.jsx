@@ -43,7 +43,7 @@ const Footer = () => {
                 </button>
               </li>
               <li>
-                <button onClick={() => navigate('/#blogs')} className="text-white/70 hover:text-white text-sm transition-colors text-left">
+                <button  onClick={() => navigate("/", { state: { scrollTo: "blogs" } })} className="text-white/70 hover:text-white text-sm transition-colors text-left">
                   Blogs
                 </button>
               </li>
