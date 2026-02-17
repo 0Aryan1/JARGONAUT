@@ -75,7 +75,7 @@ const BlogDetail = () => {
 
       {/* Blog Content */}
       <div className="pt-32 pb-20 px-4">
-       <div className="max-w-4xl mx-auto w-full">
+        <div className="max-w-4xl mx-auto w-full">
 
           {/* Blog Header */}
           <div className="mb-8">

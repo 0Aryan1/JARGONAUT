@@ -151,6 +151,14 @@ function Navbar({ position = 'absolute', scrollBehavior = false, useDarkMode = f
           >
             <div className={`px-4 pb-4 pt-2 space-y-1 border-t ${useDarkMode ? 'border-gray-200' : 'border-white/10'}`}>
               <button
+                onClick={() => navigate("/", { state: { scrollTo: "blogs" } })}
+                className={`nav-link relative px-6 py-2 ${textClass} ${textHoverClass} transition-all duration-200 hover:scale-105 group`}
+                >
+                  Blogs
+                   <div className={`absolute inset-0 bg-white/0 ${hoverBgClass} rounded-full transition-all duration-200`}></div>
+                </button>
+              
+              <button
                 onClick={() => {
                   setMobileMenuOpen(false);
                   navigate('/about');
@@ -196,7 +204,7 @@ function Navbar({ position = 'absolute', scrollBehavior = false, useDarkMode = f
                   >
                     Login
                   </button>
-                  <button
+                  {/* <button
                     onClick={() => {
                       setMobileMenuOpen(false);
                       navigate('/signup');
@@ -204,7 +212,7 @@ function Navbar({ position = 'absolute', scrollBehavior = false, useDarkMode = f
                     className={`block w-full text-left px-4 py-3 ${textClass} ${textHoverClass} ${hoverBgClass.replace('group-hover:', 'hover:')} rounded-xl transition-all duration-200 text-sm font-medium`}
                   >
                     Sign Up
-                  </button>
+                  </button> */}
                 </>
               )}
             </div>
