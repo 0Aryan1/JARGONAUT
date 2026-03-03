@@ -54,7 +54,9 @@ function Login({ position = 'absolute', scrollBehavior = false }) {
     try {
       try {
         await authService.logout();
-      } catch {}
+      } catch (error) {
+        console.log("error: ", error);
+      }
 
       const session = await authService.login(data);
 
