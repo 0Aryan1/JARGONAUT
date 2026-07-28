@@ -41,7 +41,7 @@ function AllPosts({ showOnlyFirst3 = false }) {
 
   const displayedBlogs = showAllBlogs
     ? blogs
-    : blogs.slice(0, 3);
+    : blogs.slice(3, 6);
 
   return (
     <div className="mt-20" id="blogs">
