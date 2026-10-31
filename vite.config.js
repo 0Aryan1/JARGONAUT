@@ -22,7 +22,7 @@ export default defineConfig({
     sourcemap: false,
     // Use esbuild for minification (faster than terser and already included)
     minify: 'esbuild',
-    target: 'es2015',
+    target: 'es2020',
   },
   // Optimize dependencies
   optimizeDeps: {

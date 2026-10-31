@@ -213,7 +213,8 @@ export default function Galaxy({
       alpha: transparent,
       premultipliedAlpha: false,
       antialias: false, // Disabled for performance
-      powerPreference: "high-performance"
+      powerPreference: "high-performance",
+      dpr: 1
     });
     const gl = renderer.gl;
 
@@ -229,8 +230,11 @@ export default function Galaxy({
     let resizeTimeout;
 
     function resize() {
-      const scale = 1;
+      // Render at half resolution; the canvas is stretched to fill via CSS
+      const scale = 0.5;
       renderer.setSize(ctn.offsetWidth * scale, ctn.offsetHeight * scale);
+      gl.canvas.style.width = '100%';
+      gl.canvas.style.height = '100%';
       if (program) {
         program.uniforms.uResolution.value = new Color(
           gl.canvas.width,
@@ -280,28 +284,25 @@ export default function Galaxy({
 
     const mesh = new Mesh(gl, { geometry, program });
     let animateId;
-    let lastFrameTime = performance.now();
+    let lastRenderTime = 0;
+    const FRAME_INTERVAL = 1000 / 30; // Cap at 30fps
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     function update(t) {
-      animateId = requestAnimationFrame(update);
-      
-      // Skip rendering when not visible
-      if (!isVisible.current) {
+      if (!reducedMotion) {
+        animateId = requestAnimationFrame(update);
+      }
+
+      // Skip rendering when off-screen or tab is hidden
+      if (!isVisible.current || document.hidden) {
         return;
       }
-      
-      // Calculate delta time for consistent animation
-      const now = performance.now();
-      const delta = now - lastFrameTime;
-      
-      // Skip frame if browser is struggling (delta > 50ms means < 20fps)
-      if (delta > 50) {
-        lastFrameTime = now;
+
+      if (t - lastRenderTime < FRAME_INTERVAL) {
         return;
       }
-      
-      lastFrameTime = now;
-      
+      lastRenderTime = t;
+
       if (!disableAnimation) {
         program.uniforms.uTime.value = t * 0.001;
         program.uniforms.uStarSpeed.value = (t * 0.001 * starSpeed) / 10.0;

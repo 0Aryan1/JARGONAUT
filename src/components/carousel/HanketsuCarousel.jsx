@@ -32,7 +32,10 @@ export default function HanketsuCarousel({ onCardClick }) {
           src={episode.image}
           alt={`Hanketsu ${episode.title}`}
           className="w-full h-[400px] md:h-[500px] object-cover"
+          width="400"
+          height="500"
           loading="lazy"
+          decoding="async"
         />
         
         {/* Overlay */}

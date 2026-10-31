@@ -1,5 +1,4 @@
-import React, { useState, useEffect, lazy, Suspense } from 'react';
-import appwriteService from '../appwrite/config';
+import React, { useState, lazy, Suspense } from 'react';
 
 const BlogCardLarge = lazy(() => import('./BlogCardLarge'));
 
@@ -9,35 +8,8 @@ const ComponentLoader = () => (
   </div>
 );
 
-function AllPosts({ showOnlyFirst3 = false }) {
-  const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
+function AllPosts({ blogs = [], loading = false }) {
   const [showAllBlogs, setShowAllBlogs] = useState(false);
-
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        setLoading(true);
-        const response = await appwriteService.getPosts();
-
-        console.log("Full response:", response);
-        console.log("Documents:", response?.documents);
-
-        if (response?.documents) {
-          setBlogs(response.documents);
-        }
-      } catch (error) {
-        console.error('Error fetching blogs:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchBlogs();
-  }, []);
-
-  console.log("showOnlyFirst3:", showOnlyFirst3);
-  console.log("blogs length:", blogs.length);
 
   const displayedBlogs = showAllBlogs
     ? blogs

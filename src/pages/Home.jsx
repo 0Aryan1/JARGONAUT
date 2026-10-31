@@ -1,4 +1,4 @@
-import React, { useState, useEffect, lazy, Suspense } from 'react';
+import React, { useState, useEffect, useRef, lazy, Suspense } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Navbar from '../components/navbar/Navbar';
@@ -19,22 +19,70 @@ const ComponentLoader = () => (
 
 function Home() {
   const navigate = useNavigate();
-  const [hasBlogsData, setHasBlogsData] = useState(true);
+  const [blogs, setBlogs] = useState([]);
+  const [blogsLoading, setBlogsLoading] = useState(true);
+  const [showGalaxy, setShowGalaxy] = useState(false);
+  const videoRef = useRef(null);
 
-  // Check if blogs exist
+  // Fetch blogs once and share with Carousel and AllPosts
   useEffect(() => {
-    const checkBlogs = async () => {
+    const fetchBlogs = async () => {
       try {
         const response = await appwriteService.getPosts();
-        setHasBlogsData(response && response.documents && response.documents.length > 0);
+        setBlogs(response?.documents || []);
       } catch (error) {
-        console.error('Error checking blogs:', error);
-        setHasBlogsData(false);
+        console.error('Error fetching blogs:', error);
+      } finally {
+        setBlogsLoading(false);
       }
     };
-    
-    checkBlogs();
+
+    fetchBlogs();
   }, []);
+
+  // Start the WebGL galaxy only after the page has loaded and the browser is idle
+  useEffect(() => {
+    let idleId;
+    const start = () => {
+      idleId = window.requestIdleCallback
+        ? window.requestIdleCallback(() => setShowGalaxy(true), { timeout: 2000 })
+        : setTimeout(() => setShowGalaxy(true), 200);
+    };
+
+    if (document.readyState === 'complete') {
+      start();
+    } else {
+      window.addEventListener('load', start, { once: true });
+    }
+
+    return () => {
+      window.removeEventListener('load', start);
+      if (window.cancelIdleCallback) window.cancelIdleCallback(idleId);
+      clearTimeout(idleId);
+    };
+  }, []);
+
+  // Only download and play the video once it scrolls near the viewport
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      },
+      { rootMargin: '200px' }
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
+  const hasBlogsData = blogsLoading || blogs.length > 0;
 
   const handleCardClick = (episodeId) => {
     if (episodeId && typeof episodeId === 'number') {
@@ -68,7 +116,8 @@ useEffect(() => {
         {/* Galaxy Background */}
         <div className="absolute inset-0 w-full h-full z-10">
           <Suspense fallback={<div className="w-full h-full bg-[#0a0b14]" />}>
-            <Galaxy 
+            {showGalaxy ? (
+            <Galaxy
               mouseRepulsion={true}
               mouseInteraction={true}
               density={1.5}
@@ -79,6 +128,9 @@ useEffect(() => {
               repulsionStrength={3}
               twinkleIntensity={0.5}
             />
+            ) : (
+              <div className="w-full h-full bg-[#0a0b14]" />
+            )}
           </Suspense>
         </div>
         
@@ -107,14 +159,15 @@ useEffect(() => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left side - Video */}
             <div className="w-full">
-              <video 
+              <video
+                ref={videoRef}
                 className="w-full h-auto rounded-lg shadow-2xl"
-                autoPlay 
-                loop 
+                loop
                 muted
                 playsInline
-                loading="lazy"
+                preload="none"
                 poster="/hanbg.webp"
+                aria-hidden="true"
               >
                 <source src="/hanketsu.mp4" type="video/mp4" />
               </video>
@@ -122,7 +175,7 @@ useEffect(() => {
             
             {/* Right side - Content */}
             <div className="space-y-6 text-white">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">Hanketsu</h1>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">Hanketsu</h2>
               <p className="text-base md:text-lg text-white/80 leading-relaxed text-justify">
                 They said that the hallowed pronouncements of apex courts, those monumental edifices of judicial reasoning, were destined to remain entombed within impenetrable legal compendiums, accessible only to the chosen few who could decipher their arcane syntax. But they were wrong.
 We proudly present to you: HANKETSU (判決), where The Jargonaut unleashes its most formidable technique yet: the alchemical fusion of jurisprudential excellence and sequential art! Behold as constitutional showdowns explode across panels with the intensity they always possessed but never displayed! Watch as the ratio decidendi crystallizes before your very eyes, each obiter dictum rendered with devastating clarity! Let us sail through the visual odysseys, through the most consequential judicial battles ever waged. The petitioner's contentions! The respondent's riposte! The Court's inexorable march toward precedent-setting glory! Every factual matrix, every doctrinal collision, every interpretative coup de grâce, transformed into an unforgettable saga that sears itself into your memory.
@@ -154,11 +207,11 @@ This is HANKETSU. This is justice, unleashed
               Discover our latest insights on corporate law, fintech regulations, and market dynamics
             </p>
             <Suspense fallback={<ComponentLoader />}>
-              <Carousel />
+              <Carousel blogs={blogs} loading={blogsLoading} />
             </Suspense>
-            
+
             {/* All Blogs Section - Using AllPosts Component */}
-            <AllPosts showOnlyFirst3={true} />
+            <AllPosts blogs={blogs} loading={blogsLoading} />
           </div>
         </div>
       )}

@@ -57,10 +57,13 @@ function Navbar({ position = 'absolute', scrollBehavior = false, useDarkMode = f
                   navigate('/');
                 }}
                 className="relative hover:scale-105 transition-transform duration-200 inline-block"
+                aria-label="Home"
               >
-                <img 
+                <img
                   src={logoSrc}
-                  alt="The Jargonaut Logo" 
+                  alt="The Jargonaut Logo"
+                  width="160"
+                  height="64"
                   className="h-12 md:h-14 lg:h-16 w-auto object-contain"
                 />
               </button>

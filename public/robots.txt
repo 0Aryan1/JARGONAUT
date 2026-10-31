@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /add-post
+Disallow: /edit-post/
+Disallow: /login
+Disallow: /signup

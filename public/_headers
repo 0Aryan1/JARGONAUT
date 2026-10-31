@@ -1,0 +1,16 @@
+# Cloudflare Pages response headers
+
+# Vite build output has hashed filenames, so it can be cached forever
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Public images and video are not hashed; cache for 30 days
+/*.webp
+  Cache-Control: public, max-age=2592000
+/*.mp4
+  Cache-Control: public, max-age=2592000
+/favicon_io/*
+  Cache-Control: public, max-age=2592000
+
+/llms.txt
+  Content-Type: text/plain; charset=utf-8

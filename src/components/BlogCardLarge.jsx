@@ -26,7 +26,8 @@ const BlogCardLarge = ({ blog }) => {
     <div className="bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 transform-gpu h-full flex flex-col">
       {/* Blog Image */}
       <div className="h-48 overflow-hidden">
-        <img src={appwriteService.getFilePreview(blog.featuredImage)} alt={blog.title} 
+        <img src={appwriteService.getFilePreview(blog.featuredImage)} alt={blog.title}
+          width="600" height="192" loading="lazy" decoding="async"
           className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
         />
       </div>

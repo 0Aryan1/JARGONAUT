@@ -1,33 +1,10 @@
 // src/components/carousel/Carousel.jsx
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
-import appwriteService from '../../appwrite/config';
 import BlogCardLarge from '../BlogCardLarge';
 
-export default function Carousel() {
-  const [blogs, setBlogs] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  // Fetch blogs from Appwrite on component mount
-  useEffect(() => {
-    const fetchBlogs = async () => {
-      try {
-        setLoading(true);
-        const response = await appwriteService.getPosts();
-        if (response && response.documents) {
-          setBlogs(response.documents);
-        }
-      } catch (error) {
-        console.error('Error fetching blogs:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchBlogs();
-  }, []);
-
+export default function Carousel({ blogs = [], loading = false }) {
   // Get only the first 3 blogs
   const featuredBlogs = blogs.slice(0, 3);
 

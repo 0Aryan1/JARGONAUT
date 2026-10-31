@@ -116,12 +116,36 @@ export class Service{
 
     // storage service
 
+    // Resize to maxWidth and re-encode as WebP before upload; falls back to the original file
+    async compressImage(file, maxWidth = 1200, quality = 0.8){
+        if (!file?.type?.startsWith('image/') || file.type === 'image/gif') return file;
+        try{
+            const bitmap = await createImageBitmap(file);
+            const scale = Math.min(1, maxWidth / bitmap.width);
+            const canvas = document.createElement('canvas');
+            canvas.width = Math.round(bitmap.width * scale);
+            canvas.height = Math.round(bitmap.height * scale);
+            canvas.getContext('2d').drawImage(bitmap, 0, 0, canvas.width, canvas.height);
+            bitmap.close();
+
+            const blob = await new Promise((resolve) => canvas.toBlob(resolve, 'image/webp', quality));
+            if (!blob || blob.size >= file.size) return file;
+
+            const name = file.name.replace(/\.[^.]+$/, '') + '.webp';
+            return new File([blob], name, { type: 'image/webp' });
+        } catch(error){
+            console.log("Apwrite service :: compressImage() ::", error);
+            return file;
+        }
+    }
+
     async uploadFile(file){
         try{
+            const compressed = await this.compressImage(file);
             return await this.bucket.createFile(
                 conf.appwriteBucketId,
                 ID.unique(),
-                file
+                compressed
             )
         } catch(error){
             console.log("Apwrite service :: uploadFile() ::", error);

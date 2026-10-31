@@ -6,9 +6,10 @@ import { Provider } from 'react-redux'
 import store from './store/store.jsx'
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
 import Protected from './components/AuthLayout.jsx'
+// Home is the landing page, so load it with the main bundle for a faster first paint
+import Home from './pages/Home.jsx'
 
-// Lazy load all pages for better code splitting
-const Home = lazy(() => import('./pages/Home.jsx'))
+// Lazy load the remaining pages for better code splitting
 const BlogDetail = lazy(() => import('./pages/BlogDetail.jsx'))
 const About = lazy(() => import('./pages/About.jsx'))
 const Contact = lazy(() => import('./pages/Contact.jsx'))
