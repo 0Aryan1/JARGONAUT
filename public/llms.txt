@@ -1,0 +1,14 @@
+# The Jargonaut
+
+> The Jargonaut explains corporate law through pop culture. It publishes blog articles on corporate law, fintech regulation and market dynamics, plus HANKETSU, a manga-style retelling of landmark court judgments.
+
+## Main pages
+
+- [Home](https://thejargonaut.in.net/): Introduction, Hanketsu episodes and featured blog posts
+- [Hanketsu](https://thejargonaut.in.net/hanketsu): Landmark judgments told as manga episodes
+- [About](https://thejargonaut.in.net/about): About The Jargonaut and its team
+- [Contact](https://thejargonaut.in.net/contact): How to get in touch
+
+## Optional
+
+- Blog posts are available at `https://thejargonaut.in.net/post/{slug}`
