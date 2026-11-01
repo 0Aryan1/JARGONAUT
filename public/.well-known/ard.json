@@ -1,0 +1,16 @@
+{
+  "entries": [
+    {
+      "identifier": "urn:air:thejargonaut.in.net:docs:site-guide",
+      "displayName": "The Jargonaut site guide",
+      "description": "Plain-text guide to The Jargonaut, a blog explaining Indian corporate law, SEBI, RBI and competition law through pop culture.",
+      "type": "text/markdown",
+      "url": "https://thejargonaut.in.net/llms.txt",
+      "representativeQueries": [
+        "Indian corporate law explained with pop culture",
+        "SEBI and RBI regulation blog",
+        "The Jargonaut Hanketsu case summaries"
+      ]
+    }
+  ]
+}

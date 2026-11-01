@@ -17,6 +17,20 @@ const ComponentLoader = () => (
   </div>
 );
 
+// Detect software WebGL (SwiftShader, llvmpipe, etc.) which renders on the CPU
+function hasHardwareWebGL() {
+  try {
+    const gl = document.createElement('canvas').getContext('webgl');
+    if (!gl) return false;
+    const info = gl.getExtension('WEBGL_debug_renderer_info');
+    const renderer = gl.getParameter(info ? info.UNMASKED_RENDERER_WEBGL : gl.RENDERER) || '';
+    gl.getExtension('WEBGL_lose_context')?.loseContext();
+    return !/swiftshader|llvmpipe|softpipe|software|basic render/i.test(renderer);
+  } catch {
+    return false;
+  }
+}
+
 function Home() {
   const navigate = useNavigate();
   const [blogs, setBlogs] = useState([]);
@@ -42,6 +56,9 @@ function Home() {
 
   // Start the WebGL galaxy only after the page has loaded and the browser is idle
   useEffect(() => {
+    // Without a real GPU the shader runs on the CPU and freezes the page, so keep the static background
+    if (!hasHardwareWebGL()) return;
+
     let idleId;
     const start = () => {
       idleId = window.requestIdleCallback
