@@ -34,16 +34,18 @@ function hasHardwareWebGL() {
 function Home() {
   const navigate = useNavigate();
   const [blogs, setBlogs] = useState([]);
+  const [totalBlogs, setTotalBlogs] = useState(0);
   const [blogsLoading, setBlogsLoading] = useState(true);
   const [showGalaxy, setShowGalaxy] = useState(false);
   const videoRef = useRef(null);
 
-  // Fetch blogs once and share with Carousel and AllPosts
+  // Fetch the 6 latest blogs (3 carousel + 3 preview); AllPosts pages through the rest
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await appwriteService.getPosts();
+        const response = await appwriteService.getPosts({ limit: 6 });
         setBlogs(response?.documents || []);
+        setTotalBlogs(response?.total || 0);
       } catch (error) {
         console.error('Error fetching blogs:', error);
       } finally {
@@ -228,7 +230,7 @@ This is HANKETSU. This is justice, unleashed
             </Suspense>
 
             {/* All Blogs Section - Using AllPosts Component */}
-            <AllPosts blogs={blogs} loading={blogsLoading} />
+            <AllPosts blogs={blogs} total={totalBlogs} loading={blogsLoading} />
           </div>
         </div>
       )}

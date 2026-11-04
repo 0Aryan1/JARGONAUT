@@ -26,17 +26,19 @@ export class Service{
         }
     }
 
-    async getPosts(
-  queries = [
-    Query.equal("status", "active"),
-    Query.orderDesc("$createdAt")   // Latest first
-  ]
-) {
+    async getPosts({ limit = 25, offset = 0 } = {}) {
   try {
     return await this.databases.listDocuments(
       conf.appwriteDatabaseId,
       conf.appwriteCollectionId,
-      queries
+      [
+        Query.equal("status", "active"),
+        Query.orderDesc("$createdAt"),  // Latest first
+        // Cards only need these fields; skip the full article content
+        Query.select(["$id", "$createdAt", "title", "slug", "featuredImage", "Author"]),
+        Query.limit(limit),
+        Query.offset(offset)
+      ]
     );
   } catch (error) {
     console.log("Appwrite service :: getPosts() ::", error);
@@ -45,9 +47,6 @@ export class Service{
 
     async createPost({title,slug, content, featuredImage, status, userId, Author}){
         try{
-            console.log('Creating post with data:', { title, slug, content, featuredImage, status, userId, Author });
-            console.log('userId value:', userId);
-            console.log('userId type:', typeof userId);
             return await this.databases.createDocument(
                 conf.appwriteDatabaseId,
                 conf.appwriteCollectionId,
